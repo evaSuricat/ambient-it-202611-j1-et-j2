@@ -4,11 +4,21 @@
 
 **Durée** : 15 minutes.
 
-**Premier exercice du Jour 2** : il reprend l'exercice 11 du Jour 1, et il vérifie aussi que votre poste marche (Git, Python, votre outil, Chrome).
+**Deuxième exercice du Jour 2**, après l'exercice 10 : il vérifie aussi que Git et Python marchent sur votre poste.
 
 ## Ce qu'on fait
 
-`exercices/11-carte-en-base/depart/` contient la page du Pigala (la même pour tout le monde) et `carte.csv`. Vous travaillez à la racine du dépôt cloné, dans VS Code, et chaque commande de cet exercice se lance depuis la racine de `stagiaire_J1_et_J2` sauf quand la consigne dit de faire `cd`. La carte, aujourd'hui écrite dans le HTML, va vivre dans une base SQLite servie par Python. SQLite est inclus dans Python : rien à installer.
+La carte, aujourd'hui écrite dans le HTML, va vivre dans une base SQLite servie par Python. SQLite est inclus dans Python : rien à installer. Vous travaillez à la racine du dépôt cloné, dans VS Code, et chaque commande de cet exercice se lance depuis la racine de `stagiaire_J1_et_J2` sauf quand la consigne dit de faire `cd`.
+
+**Reprendre votre page.** Vous continuez sur la page que vous venez de relire et de corriger à l'exercice 10. Copiez-la dans `exercices/11-carte-en-base/depart/`, en écrasant celle qui s'y trouve. Depuis la racine, avant tout `cd`, une ligne après l'autre (elles marchent sous Windows comme sous Linux) :
+
+```
+cp exercices/10-relire/depart/index.html exercices/11-carte-en-base/depart/
+cp exercices/10-relire/depart/style.css exercices/11-carte-en-base/depart/
+cp exercices/10-relire/depart/css/* exercices/11-carte-en-base/depart/css/
+```
+
+Résultat attendu : aucun message. Dans `exercices/11-carte-en-base/depart/`, vous retrouvez votre page corrigée, à côté de `carte.csv`, qui était déjà là (le dossier `css/` ne doit pas contenir un second `css/`). Une erreur « No such file » (« Cannot find path » sous PowerShell) veut dire que vous n'êtes pas à la racine : rien n'a été écrit, vérifiez avec `pwd`. Si l'exercice 10 n'a pas abouti, ne copiez rien : gardez la page fournie.
 
 Claude Code demande un abonnement payant. Sans abonnement, faites les mêmes prompts dans le chat de GitHub Copilot Free (sélecteur sur **Agent**), ou suivez sur l'écran partagé de la formatrice. Mode de permissions **Manual** dans Claude Code : lisez chaque permission avant de l'accepter.
 
