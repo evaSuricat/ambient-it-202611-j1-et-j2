@@ -82,7 +82,14 @@ Dans exercices/11-carte-en-base/depart/index.html, la carte est écrite en deux 
 
 ### Étape 3 : lire avant de lancer
 
-**Lisez chaque requête SQL avant de lancer** : `CREATE TABLE`, `INSERT`, `SELECT`. Demandez « explique la requête » au moindre doute. Lisez aussi le texte ajouté pour les erreurs : c'est vous qui le validez.
+**Lisez chaque requête SQL avant de lancer.** Ouvrez les deux fichiers Python que l'outil vient d'écrire, dans `exercices/11-carte-en-base/depart/` :
+
+- dans `charger.py` : `CREATE TABLE`, qui crée la table, et `INSERT`, qui la remplit (souvent aussi `DELETE`, qui la vide avant de recharger) ;
+- dans `servir.py` : `SELECT`, qui lit la carte pour l'envoyer à la page.
+
+Pour les retrouver vite : Ctrl+F dans le fichier, puis tapez le mot en majuscules. Demandez « explique la requête » à l'outil au moindre doute.
+
+Lisez aussi le texte que l'outil a écrit pour les erreurs, par exemple « La carte n'a pas pu être chargée. » : cherchez-le dans `script.js` et dans `index.html`. C'est vous qui validez ce que la page dira à un client.
 
 ### Étape 4 : charger la base
 
