@@ -38,6 +38,8 @@
 
    Prenez les remarques de votre rapport, et regardez la page vous-même : un outil ne voit pas tout.
 
+   Sur la page fournie, Lighthouse signale une seule chose, dans Best practices : « Browser errors were logged to the console », avec une erreur 404 sur `favicon.ico`. Chrome demande ce fichier tout seul, pour l'icône de l'onglet, et la page n'en déclare pas. Correction en une ligne, dans le `<head>` de `index.html` : `<link rel="icon" href="data:,">`, qui déclare une icône vide. Le score passe de 96 à 100 (relevé le 17/11/2026). C'est une rustine : le brief ne fournit aucun logo, la vraie icône est à demander au client.
+
 5. **Le Lighthouse « après ».** Rechargez la page (F5), onglet Lighthouse, **+** pour un nouveau rapport, **Analyze page load**. Notez les deux scores dans `lighthouse.md`. Puis arrêtez le serveur : Ctrl+C dans son terminal.
 
 6. **Committer**, depuis la racine, en nommant vos corrections dans le message :
