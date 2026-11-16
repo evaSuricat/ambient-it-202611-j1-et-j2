@@ -25,7 +25,7 @@ Ce qui manque à chacune : un **qui** et une **preuve**. Deux exemples de règle
 
 ### Étape 2 : écrire vos trois règles (8 min)
 
-Copiez le modèle, depuis la racine de `stagiaire_J2` :
+Copiez le modèle, depuis la racine de `stagiaire_J1_et_J2` :
 
 ```
 cp exercices/25-charte/depart/modele-charte.md exercices/25-charte/depart/charte-ia.md

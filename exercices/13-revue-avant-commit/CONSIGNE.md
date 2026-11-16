@@ -8,7 +8,7 @@
 
 `depart/` contient la page réparée et `A-FAIRE.md`, une demande d'évolution : une section « Ils en parlent » avec trois avis clients (fictifs, dans `A-FAIRE.md`). On la fait écrire, on la fait relire **avant** de committer, on génère le message de commit. Les fichiers de l'exercice sont dans `exercices/13-revue-avant-commit/depart/`.
 
-0. **Reprendre votre page.** Si l'exercice 12 a abouti, copiez votre page dans `exercices/13-revue-avant-commit/depart/`, en écrasant celle qui s'y trouve ; sinon, gardez celle qui est fournie. C'est la page réparée de l'exercice 12, avec son serveur et sa base. Ces lignes se lancent depuis la racine de votre dossier `stagiaire_J1`, avant tout `cd`, une ligne après l'autre (elles marchent sous Windows comme sous Linux) :
+0. **Reprendre votre page.** Si l'exercice 12 a abouti, copiez votre page dans `exercices/13-revue-avant-commit/depart/`, en écrasant celle qui s'y trouve ; sinon, gardez celle qui est fournie. C'est la page réparée de l'exercice 12, avec son serveur et sa base. Ces lignes se lancent depuis la racine de votre dossier `stagiaire_J1_et_J2`, avant tout `cd`, une ligne après l'autre (elles marchent sous Windows comme sous Linux) :
 
 cp exercices/12-bug-glisse/depart/index.html exercices/13-revue-avant-commit/depart/
 cp exercices/12-bug-glisse/depart/style.css exercices/13-revue-avant-commit/depart/

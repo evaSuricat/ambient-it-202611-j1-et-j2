@@ -14,7 +14,7 @@ Cet exercice se fait sans abonnement payant : un compte gratuit Claude suffit, e
 
 ### Étape 0 : enregistrer le point de départ
 
-Depuis la racine de `stagiaire_J2` :
+Depuis la racine de `stagiaire_J1_et_J2` :
 
 ```
 git add exercices/19-ce-que-mes-outils-gardent
@@ -36,7 +36,7 @@ Pour votre outil (Claude, ou Copilot sans compte Claude), dans cet ordre de rech
 
 1. Les **réglages du compte**, puis une rubrique qui parle de confidentialité, de données ou d'entraînement.
 2. L'endroit où se **voit et s'efface la mémoire** de l'outil, s'il en a une.
-3. L'**export** de vos données. Ne le demandez pas pendant l'exercice, sauf choix personnel : un export est un fichier qui contient toutes vos conversations, donc des données personnelles à ranger **hors du dépôt Git**, jamais dans `stagiaire_J2`.
+3. L'**export** de vos données. Ne le demandez pas pendant l'exercice, sauf choix personnel : un export est un fichier qui contient toutes vos conversations, donc des données personnelles à ranger **hors du dépôt Git**, jamais dans `stagiaire_J1_et_J2`.
 4. Les **partages** : liens de conversation, artefacts ou pages publiés. Listez-les, sans les ouvrir si vous craignez qu'ils contiennent quelque chose de personnel.
 
 Pour Claude, cherchez dans le menu de votre profil (en bas ou en haut à gauche selon l'interface), puis « Paramètres » ou « Settings » : l'intitulé exact change. Pour GitHub Copilot, les réglages se trouvent sur votre compte GitHub, rubrique Copilot : l'intitulé exact change aussi. ChatGPT, chez vous, suit le même chemin que Claude. **Écrivez le chemin que vous avez vraiment suivi.** Si un réglage n'existe pas, écrivez « absent » : c'est une réponse valable.

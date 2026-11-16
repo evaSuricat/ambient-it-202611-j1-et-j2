@@ -8,18 +8,14 @@
 
 `exercices/10-relire/depart/` contient la page complète avec sa carte. On la mesure, on la relit avec la grille de l'exercice 5, on corrige, on remesure.
 
-0. **Reprendre votre page.** Si l'exercice 9 a abouti, copiez votre page dans `exercices/10-relire/depart/`, en écrasant celle qui s'y trouve ; sinon, gardez celle qui est fournie. Ces lignes se lancent depuis la racine de votre dossier `stagiaire_J1`, avant tout `cd`, une ligne après l'autre (elles marchent sous Windows comme sous Linux) :
+0. **Le point de départ.** Tout le monde part des fichiers fournis dans `exercices/10-relire/depart/` : la page (`index.html`), sa feuille de style (`style.css`) et le dossier `css/`. Il n'y a rien à copier, et vous n'avez pas besoin de votre page du jour 1.
 
-       cp exercices/09-snippets-carte/depart/index.html exercices/10-relire/depart/
-       cp exercices/09-snippets-carte/depart/style.css exercices/10-relire/depart/
-       cp exercices/09-snippets-carte/depart/css/* exercices/10-relire/depart/css/
-
-   Résultat attendu : aucun message, et les fichiers copiés apparaissent dans `exercices/10-relire/depart/` (le dossier `css/` ne doit pas contenir un second `css/`). Une erreur « No such file » (« Cannot find path » sous PowerShell) veut dire que le chemin ou le dossier de départ est faux : rien n'a été écrit, vérifiez que vous êtes à la racine (`pwd`).
-
-   Enregistrez ce point de départ, toujours depuis la racine :
+   Enregistrez ce point de départ, depuis la racine de votre dossier `stagiaire_J1_et_J2`, avant tout `cd`, une ligne après l'autre :
 
        git add exercices/10-relire
        git commit -m "E10 : état avant relecture"
+
+   Résultat attendu : « nothing to commit » est normal si rien n'a changé depuis le clonage. Sinon, une ligne « files changed ».
 
 1. **Le Lighthouse « avant », tant que rien n'est corrigé.** Lighthouse refuse une page ouverte par double-clic : il lui faut une adresse `http`. Ouvrez un deuxième terminal (bouton **+** du panneau Terminal), puis :
 
@@ -40,7 +36,7 @@
 
 4. **Appliquer au moins deux corrections** de la liste « À corriger », à la main ou en demandant à l'outil. Nommez les points, pas les numéros, car la numérotation change d'un rapport à l'autre : « Dans exercices/10-relire/depart/, applique les corrections de ton rapport sur … ». Laissez de côté ce qui est une décision à prendre ou une précaution pour plus tard.
 
-   Si votre page est celle qui est fournie, le rapport signale le contraste du bouton et de l'encadré. Après la correction du bouton, le survol (`#c9540f`, 4,4 pour 1) devient plus clair que le fond normal : c'est une correction de plus, à faire à la main (par exemple `#9A3E09`, 6,9 pour 1). Si votre page vient de l'exercice 9, il y a sans doute moins à corriger : prenez les remarques du rapport, et regardez la page vous-même.
+   Prenez les remarques de votre rapport, et regardez la page vous-même : un outil ne voit pas tout.
 
 5. **Le Lighthouse « après ».** Rechargez la page (F5), onglet Lighthouse, **+** pour un nouveau rapport, **Analyze page load**. Notez les deux scores dans `lighthouse.md`. Puis arrêtez le serveur : Ctrl+C dans son terminal.
 

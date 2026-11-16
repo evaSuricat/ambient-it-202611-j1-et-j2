@@ -12,7 +12,7 @@ Le dossier de départ est la solution de l'exercice 21 (serveur sécurisé), plu
 
 ### Étape 0 : enregistrer le point de départ
 
-Depuis la racine de `stagiaire_J2` :
+Depuis la racine de `stagiaire_J1_et_J2` :
 
 ```
 git add exercices/bonus-formulaire

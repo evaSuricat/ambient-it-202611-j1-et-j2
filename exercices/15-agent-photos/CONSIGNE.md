@@ -14,7 +14,7 @@ Claude Code demande un abonnement payant. Sans abonnement, faites le même promp
 
 ### Étape 0 : enregistrer le point de départ
 
-Depuis la racine de `stagiaire_J2`, dans un terminal de VS Code, une ligne après l'autre :
+Depuis la racine de `stagiaire_J1_et_J2`, dans un terminal de VS Code, une ligne après l'autre :
 
 ```
 git add exercices/15-agent-photos

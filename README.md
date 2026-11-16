@@ -1,6 +1,6 @@
 # Le Pigala : la page prend des réservations, on protège les données de ses clients
 
-Formation « Développeurs : boostez vos performances grâce à l'IA » (Ambient IT, novembre 2026), journée 2.
+Formation « Développeurs : boostez vos performances grâce à l'IA » (Ambient IT, novembre 2026). Ce dépôt réunit les deux journées : les exercices 1 à 9 du jour 1, déjà faits, et ceux du jour 2, qui reprend à l'exercice 10.
 
 Le fil rouge reprend celui du jour 1 : la brasserie-restaurant fictive de Montreuil. Sa page prend maintenant des réservations, donc elle enregistre des noms, des téléphones et des courriels. Toute la journée, on se demande ce qui sort du poste, ce qui reste chez les outils, et comment s'en protéger. Tout est fictif : aucune vraie personne, aucun vrai client, aucun vrai secret dans ce dépôt. Les données et leurs sources sont décrites dans `ressources/SOURCES-DONNEES.md`.
 
@@ -10,10 +10,10 @@ Prérequis : les mêmes qu'au jour 1 (VS Code avec GitHub Copilot et Claude Code
 
 Claude Code demande un abonnement payant. Sans abonnement, chaque exercice a un chemin avec GitHub Copilot Free, ou se suit sur l'écran partagé de la formatrice. Avec Copilot Free, GitHub choisit le modèle, la revue de code peut ne rien dire, la complétion (Tab) invente, et **« New Chat » repasse en mode Ask : remettez Agent à chaque fois**. Une comparaison entre deux outils dit toujours « outil et modèle ».
 
-1. Créer un dossier `stagiaire_J2` (là où vous rangez vos dossiers de formation), l'ouvrir dans VS Code (Fichier, Ouvrir le dossier, puis « Yes, I trust the authors »), et y cloner ce dépôt depuis un terminal de VS Code, sans oublier le point final :
+1. Créer un dossier `stagiaire_J1_et_J2` (là où vous rangez vos dossiers de formation), l'ouvrir dans VS Code (Fichier, Ouvrir le dossier, puis « Yes, I trust the authors »), et y cloner ce dépôt depuis un terminal de VS Code, sans oublier le point final :
 
 ```
-git clone https://github.com/evaSuricat/ambient-it-202611-j2-brasserie.git .
+git clone https://github.com/evaSuricat/ambient-it-202611-j1-et-j2.git .
 ```
 
 2. Créer sa branche de travail, une par personne :
@@ -22,17 +22,22 @@ git clone https://github.com/evaSuricat/ambient-it-202611-j2-brasserie.git .
 git switch -c prenom
 ```
 
-3. Garder la racine de `stagiaire_J2` ouverte toute la journée : c'est là que les assistants lisent `AGENTS.md`. Chaque exercice a un `CONSIGNE.md` dans `exercices/NN-nom/`. Les commandes se lancent depuis la racine, sauf quand la consigne dit de faire `cd`.
+3. Garder la racine de `stagiaire_J1_et_J2` ouverte toute la journée : c'est là que les assistants lisent `AGENTS.md` et le skill `/verifier-page` (`.claude/skills/verifier-page/`), tous deux écrits au jour 1 et fournis ici. Chaque exercice a un `CONSIGNE.md` dans `exercices/NN-nom/`. Les commandes se lancent depuis la racine, sauf quand la consigne dit de faire `cd`.
 
 Si `python` n'existe pas sur votre poste (Mac, certains Linux), tapez `python3` partout.
 
 ## Une seule page, d'exercice en exercice
 
-**Tout le monde part de la page fournie** : personne n'a besoin de sa page du jour 1. C'est la page de la formatrice, avec sa carte écrite en HTML et quatre emplacements photo « [à fournir] ». L'exercice 11, premier de la journée, la branche sur une base. Ensuite, chaque `depart/` est la solution de l'exercice précédent quand l'exercice touche la page ou le serveur (15, 17, 21, 23).
+**Tout le monde part de la page fournie** : personne n'a besoin de sa page du jour 1. C'est la page de la formatrice, avec sa carte écrite en HTML et quatre emplacements photo « [à fournir] ». L'exercice 10, premier de la journée, la relit avec le skill `/verifier-page` de l'exercice 5 ; l'exercice 11 la branche sur une base. Ensuite, chaque `depart/` est la solution de l'exercice précédent quand l'exercice touche la page ou le serveur (15, 17, 21, 23).
+
+Les dossiers `01` à `09` sont les exercices du jour 1. Le dossier `16` est un exercice du jour 1 qui n'est pas au programme de cette journée.
 
 | Exercice | Point du programme | Durée |
 |---|---|---|
-| 11 La carte en base | Le vibe coding et SQL : la page devient une petite application. Premier de la journée, il vérifie aussi les postes | 15 min |
+| 10 Relire ce qu'on n'a pas écrit | Relecture et amélioration du code généré. Premier de la journée, il vérifie aussi les postes | 15 min |
+| 11 La carte en base | Le vibe coding et SQL : la page devient une petite application | 15 min |
+| 12 Le bug glissé | Détection et correction de bugs : le navigateur, l'IA, SonarQube for IDE | 20 min |
+| 13 Revue avant commit | Revue de code automatisée, message de commit | 15 min |
 | 15 L'agent fait le sale boulot | Atelier officiel : automatiser une tâche répétitive avec un agent | 15 min chronométrées |
 | 17 Les réservations arrivent | Le fil rouge reprend : une page qui enregistre des données personnelles | 15 min |
 | 18 Avant d'exécuter | Sécurité avant exécution du code, hallucinations. Tri à l'oral, sans outil | 10 min |
@@ -60,6 +65,6 @@ Puis http://127.0.0.1:8000/ dans Chrome. `Ctrl+C` arrête le serveur. Deux situa
 
 - `carte.db` est versionnée dans les `depart/` : c'est voulu, la base fait partie de l'exercice. Elle ne contient que des données fictives. Dans un vrai projet, on ne versionne jamais une base de clients.
 - Les solutions complètes vivent dans le dépôt de la formatrice. Chaque `depart/` qui prolonge un exercice précédent en contient la solution : celui d'E23 contient `servir.py`, `gerant.py` et `separer_base.py` corrigés, qui sont la solution d'E21, voulue ainsi.
-- `.claude/agents/relecteur-code.md`, à la racine, est le sous-agent de relecture de l'exercice 21 : il est versionné exprès. Le dossier `.venv/` que l'exercice 15 crée à la racine est ignoré par git.
+- `ressources/agents/` contient les sous-agents fournis, en réserve : `relecteur-code.md` s'installe dans `.claude/agents/` à l'exercice 21 (étape 0), `pre-analyse-juridique.md` de la même façon quand on veut s'en servir. Le dossier `.venv/` que l'exercice 15 crée à la racine est ignoré par git.
 - **Ce que vous emportez en plus des exercices.** Trois sous-agents en lecture seule : `relecteur-code` (exercice 21), `pre-analyse-juridique` (exercices 24 et 25) et celui du bonus ; la page `ressources/quel-sous-agent-pour-quoi.md` dit lequel lancer et quand. Le dossier `ressources/sources-juridiques/` contient les textes que `pre-analyse-juridique` a le droit de lire (RGPD, règlement européen sur l'IA, code de la propriété intellectuelle, guide de la CNIL, support de la DGE) : lisez son `LISEZ-MOI.md`, rien n'y est un avis juridique. Le fichier `ressources/hooks/pre-commit` est un hook Git : installé par `git config core.hooksPath ressources/hooks`, il lance les tests de sécurité avant tout commit qui touche `servir.py` et refuse le commit s'ils échouent. Il ne s'installe pas tout seul ; sous macOS ou Linux, rendez-le d'abord exécutable (`chmod +x ressources/hooks/pre-commit`).
 - Le `.gitignore` ne contient que le nécessaire (`.venv/`, les fichiers de l'éditeur et les nouveaux fichiers des dossiers `donnees/`, qui contiennent les réservations des clients). Il n'ignore pas `rapports/` : vos dossiers de comptes rendus se committent normalement.

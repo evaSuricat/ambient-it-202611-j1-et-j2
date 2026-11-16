@@ -6,7 +6,7 @@
 
 ## Ce qu'on fait
 
-À l'exercice 21, vous avez utilisé `relecteur-code` : un fichier Markdown avec un en-tête (nom, description, outils autorisés, modèle) et un texte de consignes. Ici, vous écrivez le vôtre dans `.claude/agents/`, à la racine de `stagiaire_J2`, à partir de ce modèle, pour **une autre règle de votre charte**.
+À l'exercice 21, vous avez utilisé `relecteur-code` : un fichier Markdown avec un en-tête (nom, description, outils autorisés, modèle) et un texte de consignes. Ici, vous écrivez le vôtre dans `.claude/agents/`, à la racine de `stagiaire_J1_et_J2`, à partir de ce modèle, pour **une autre règle de votre charte**.
 
 Exemple fil rouge : un sous-agent `detecteur-coordonnees` qui vérifie qu'aucun fichier ne contient de téléphone ou de courriel en clair, en lecture seule. Vous pouvez le prendre tel quel ou choisir une autre règle (secrets dans un fichier, texte alternatif manquant sur une image, route qui lit des données).
 

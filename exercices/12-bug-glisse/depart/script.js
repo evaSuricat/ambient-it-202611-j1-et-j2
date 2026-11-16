@@ -1,53 +1,36 @@
-"use strict";
+// Remplit la carte depuis /api/carte (base SQLite, servie par servir.py).
+// Sans JavaScript, la carte écrite dans le <noscript> reste la référence.
+(async function () {
+  const bloc = document.getElementById("carte-base");
+  const listes = {
+    biere: document.querySelector('[data-categorie="biere"]'),
+    plat: document.querySelector('[data-categorie="plat"]'),
+  };
+  if (!bloc || !listes.biere || !listes.plat) return;
 
-const listes = {
-  biere: document.getElementById("liste-biere"),
-  plat: document.getElementById("liste-plat"),
-};
-const contenu = document.getElementById("carte-contenu");
-const erreur = document.getElementById("carte-erreur");
-
-const prix = new Intl.NumberFormat("fr-FR", {
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
-});
-
-function creerLigne(plat) {
-  const nom = document.createElement("span");
-  nom.textContent = plat.nom;
-
-  const description = document.createElement("span");
-  description.textContent = plat.description;
-
-  const montant = document.createElement("span");
-  montant.className = "prix";
-  montant.textContent = prix.format(plat.prix) + " €";
-
-  const ligne = document.createElement("li");
-  ligne.append(nom, " ", description, " ", montant);
-  return ligne;
-}
-
-async function chargerCarte() {
   try {
     const reponse = await fetch("/api/cartes");
-    if (!reponse.ok) {
-      throw new Error("Réponse " + reponse.status);
-    }
+    if (!reponse.ok) throw new Error("Réponse " + reponse.status);
     const carte = await reponse.json();
-    if (!Array.isArray(carte)) {
-      throw new Error("Réponse inattendue");
-    }
-    for (const plat of carte) {
-      if (listes[plat.categorie]) {
-        listes[plat.categorie].append(creerLigne(plat));
-      }
-    }
-    contenu.hidden = false;
-  } catch (e) {
-    console.error(e);
-    erreur.hidden = false;
-  }
-}
+    const euros = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR" });
 
-chargerCarte();
+    for (const ligne of carte) {
+      const liste = listes[ligne.categorie];
+      if (!liste) continue;
+      const li = document.createElement("li");
+      li.innerHTML =
+        '<span class="nom"></span> <span class="desc"></span> <span class="prix"></span>';
+      li.querySelector(".nom").textContent = ligne.nom;
+      li.querySelector(".desc").textContent = ligne.description;
+      li.querySelector(".prix").textContent = euros.format(ligne.prix);
+      liste.appendChild(li);
+    }
+    bloc.hidden = false;
+  } catch (erreur) {
+    // Page ouverte sans le serveur (double-clic), ou base absente : message à la place de la carte.
+    const message = document.createElement("p");
+    message.setAttribute("role", "status");
+    message.textContent = "La carte n'a pas pu être chargée.";
+    bloc.before(message);
+  }
+})();

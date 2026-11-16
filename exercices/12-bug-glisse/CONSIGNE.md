@@ -14,7 +14,7 @@
 
    Installez l'extension : dans VS Code, Ctrl+Maj+X, cherchez **SonarQube for IDE**, éditeur **SonarSource**, coche bleue, **Install**. Une icône apparaît dans la barre de gauche. Il n'y a pas de compte à connecter : fermez ce qu'il propose.
 
-   Gardez le `depart/` fourni : la page est déjà cassée, il n'y a rien à copier. Enregistrez ce point de départ, depuis la racine de votre dossier `stagiaire_J1` :
+   Gardez le `depart/` fourni : la page est déjà cassée, il n'y a rien à copier. Enregistrez ce point de départ, depuis la racine de votre dossier `stagiaire_J1_et_J2` :
 
        git add -A
        git commit -m "E12 : état avant la chasse aux bugs"

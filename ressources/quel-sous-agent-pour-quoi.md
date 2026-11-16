@@ -1,6 +1,6 @@
 # Quel sous-agent pour quoi
 
-Un sous-agent est un assistant spécialisé que Claude Code lance à votre demande, avec ses propres consignes et ses propres outils. Les fichiers qui les décrivent sont dans `.claude/agents/`, à la racine du dépôt. Les trois sous-agents de cette formation sont en lecture seule : ils lisent, ils ne modifient rien et ne lancent aucune commande.
+Un sous-agent est un assistant spécialisé que Claude Code lance à votre demande, avec ses propres consignes et ses propres outils. Les fichiers qui les décrivent sont fournis dans `ressources/agents/` : Claude Code ne lit que ceux qu'on a copiés dans `.claude/agents/`, à la racine du dépôt. Les trois sous-agents de cette formation sont en lecture seule : ils lisent, ils ne modifient rien et ne lancent aucune commande.
 
 | | `relecteur-code` | `detecteur-coordonnees` | `pre-analyse-juridique` |
 |---|---|---|---|

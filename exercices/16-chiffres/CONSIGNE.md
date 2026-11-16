@@ -8,7 +8,7 @@
 
 Deux groupes, A et B, deux tâches de cinq minutes chacune, sur la page que vous avez construite aujourd'hui, avec ses photos d'E15.
 
-**Avant de commencer : reprendre votre page.** Si le serveur d'E15 tourne encore, arrêtez-le (`Ctrl+C` dans son terminal). Puis, depuis la racine de votre dossier `stagiaire_J1`, une ligne après l'autre (elles marchent sous Windows comme sous Linux) :
+**Avant de commencer : reprendre votre page.** Si le serveur d'E15 tourne encore, arrêtez-le (`Ctrl+C` dans son terminal). Puis, depuis la racine de votre dossier `stagiaire_J1_et_J2`, une ligne après l'autre (elles marchent sous Windows comme sous Linux) :
 
     cp exercices/15-agent-photos/depart/index.html exercices/16-chiffres/depart/
     cp exercices/15-agent-photos/depart/style.css exercices/16-chiffres/depart/

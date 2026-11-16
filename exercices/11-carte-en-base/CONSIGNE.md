@@ -8,13 +8,13 @@
 
 ## Ce qu'on fait
 
-`exercices/11-carte-en-base/depart/` contient la page du Pigala (la même pour tout le monde) et `carte.csv`. Vous travaillez à la racine du dépôt cloné, dans VS Code, et chaque commande de cet exercice se lance depuis la racine de `stagiaire_J2` sauf quand la consigne dit de faire `cd`. La carte, aujourd'hui écrite dans le HTML, va vivre dans une base SQLite servie par Python. SQLite est inclus dans Python : rien à installer.
+`exercices/11-carte-en-base/depart/` contient la page du Pigala (la même pour tout le monde) et `carte.csv`. Vous travaillez à la racine du dépôt cloné, dans VS Code, et chaque commande de cet exercice se lance depuis la racine de `stagiaire_J1_et_J2` sauf quand la consigne dit de faire `cd`. La carte, aujourd'hui écrite dans le HTML, va vivre dans une base SQLite servie par Python. SQLite est inclus dans Python : rien à installer.
 
 Claude Code demande un abonnement payant. Sans abonnement, faites les mêmes prompts dans le chat de GitHub Copilot Free (sélecteur sur **Agent**), ou suivez sur l'écran partagé de la formatrice. Mode de permissions **Manual** dans Claude Code : lisez chaque permission avant de l'accepter.
 
 ### Étape 0 : vérifier le poste, puis enregistrer le point de départ
 
-Depuis la racine de `stagiaire_J2`, dans un terminal de VS Code, une ligne après l'autre :
+Depuis la racine de `stagiaire_J1_et_J2`, dans un terminal de VS Code, une ligne après l'autre :
 
 ```
 git --version

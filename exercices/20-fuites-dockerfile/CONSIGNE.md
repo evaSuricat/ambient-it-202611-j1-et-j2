@@ -62,7 +62,7 @@ Relisez le résultat avec votre grille : le jeton est-il écrit quelque part en 
 
 ### Étape 7 : enregistrer (le seul commit de l'exercice)
 
-Depuis la racine de `stagiaire_J2` :
+Depuis la racine de `stagiaire_J1_et_J2` :
 
 ```
 git add exercices/20-fuites-dockerfile
