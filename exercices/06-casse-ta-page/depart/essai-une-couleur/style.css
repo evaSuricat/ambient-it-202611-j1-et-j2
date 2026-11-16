@@ -1,0 +1,371 @@
+/* Le Pigala - feuille de style - ESSAI UNE COULEUR
+   Toute la page est en bleu nuit #1D2A44 et ses nuances : aucun orange, aucun vert.
+   Nuances : nuit profond #141C2E, bleu moyen #3A4F7A, bleu gris #5A6B8C,
+   bleu clair #8FA3CC, bleu pâle #EDF0F6, bleu givré #F8F9FC.
+   Contrastes (texte sur fond, minimum 4,5:1) :
+   - bleu nuit sur bleu pâle          : environ 12,5:1
+   - bleu pâle sur bleu nuit          : environ 12,5:1
+   - bleu nuit sur bleu clair         : environ 5,6:1
+   - bleu clair sur bleu nuit         : environ 5,6:1
+   - bleu givré sur bleu moyen        : environ 7,7:1
+   Le bleu gris sert uniquement de filet décoratif, jamais de fond de texte.
+
+   Mode sombre (réglage du système, prefers-color-scheme: dark) :
+   - bleu pâle sur nuit profond       : environ 14,9:1
+   - bleu pâle sur bleu nuit          : environ 12,5:1
+   - bleu nuit sur bleu pâle (pastilles) : environ 12,5:1
+   - bleu clair sur nuit profond      : environ 6,7:1 */
+
+:root {
+  --bleu-clair: #8FA3CC;
+  --nuit: #1D2A44;
+  --bleu-pale: #EDF0F6;
+  --bleu-gris: #5A6B8C;
+  --bleu-givre: #F8F9FC;
+  --police: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --police-titre: Georgia, "Times New Roman", serif;
+
+  /* Rôles de couleur : les valeurs ci-dessous sont celles du mode clair. */
+  --fond: var(--bleu-pale);
+  --texte: var(--nuit);
+  --surface: var(--bleu-givre);
+  --encart: var(--bleu-pale);
+  --pastille-fond: var(--nuit);
+  --pastille-texte: var(--bleu-pale);
+
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --nuit-profond: #141C2E;
+    --fond: var(--nuit-profond);
+    --texte: var(--bleu-pale);
+    --surface: var(--nuit);
+    --encart: var(--nuit-profond);
+    --pastille-fond: var(--bleu-pale);
+    --pastille-texte: var(--nuit);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+}
+
+body {
+  margin: 0;
+  font-family: var(--police);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--texte);
+  background: var(--fond);
+  overflow-wrap: break-word;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.conteneur {
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+h1, h2, h3 {
+  font-family: var(--police-titre);
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.2rem; }
+
+p { margin: 0 0 1rem; }
+
+a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+a:focus-visible,
+.bouton:focus-visible {
+  outline: 3px solid var(--texte);
+  outline-offset: 3px;
+}
+
+.entete a:focus-visible,
+.pied a:focus-visible,
+.accroche a:focus-visible {
+  outline-color: var(--bleu-pale);
+}
+
+/* Lien d'évitement */
+.lien-evitement {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  padding: 0.5rem 1rem;
+  background: var(--bleu-clair);
+  color: var(--nuit);
+  font-weight: 700;
+  z-index: 20;
+}
+.lien-evitement:focus {
+  top: 0.5rem;
+}
+
+/* En-tête et navigation */
+.entete {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--nuit);
+  color: var(--bleu-pale);
+  border-bottom: 4px solid var(--bleu-gris);
+}
+
+.entete .conteneur {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.marque {
+  margin: 0;
+  font-family: var(--police-titre);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--bleu-clair);
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  display: inline-block;
+  padding: 0.4rem 0.25rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+/* Accroche */
+.accroche {
+  padding: 3rem 0;
+  background: var(--nuit);
+  color: var(--bleu-pale);
+}
+
+.accroche h1 {
+  font-size: 2.1rem;
+}
+
+.chapeau {
+  font-size: 1.15rem;
+  max-width: 40rem;
+}
+
+.bouton {
+  display: inline-block;
+  padding: 0.85rem 1.5rem;
+  background: var(--bleu-clair);
+  color: var(--nuit);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  border: 2px solid var(--bleu-clair);
+}
+
+.bouton:hover {
+  background: var(--bleu-pale);
+  border-color: var(--bleu-pale);
+}
+
+/* Sur le fond de la page, un filet donne au bouton un contour lisible. */
+.venir .bouton {
+  border-color: var(--texte);
+}
+
+/* Sections */
+main section {
+  padding: 2.5rem 0;
+}
+
+.esprit {
+  background: var(--fond);
+}
+
+blockquote {
+  margin: 0 0 1.25rem;
+  padding: 0.5rem 0 0.5rem 1rem;
+  border-left: 6px solid var(--bleu-gris);
+  font-family: var(--police-titre);
+  font-size: 1.35rem;
+  font-style: italic;
+}
+
+blockquote p { margin: 0; }
+
+.pastilles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+}
+
+.pastilles li {
+  padding: 0.35rem 0.9rem;
+  background: var(--pastille-fond);
+  color: var(--pastille-texte);
+  border-radius: 2rem;
+  font-size: 0.95rem;
+}
+
+/* Carte */
+.carte {
+  background: var(--surface);
+  border-top: 4px solid var(--bleu-gris);
+  border-bottom: 4px solid var(--bleu-gris);
+}
+
+.intro {
+  max-width: 40rem;
+}
+
+.grille-carte {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.categorie {
+  padding: 1rem 1.1rem;
+  background: var(--encart);
+  border-radius: 0.5rem;
+  border-top: 4px solid var(--bleu-clair);
+}
+
+.plats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.plats li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px dashed var(--texte);
+}
+
+.plats li:last-child {
+  border-bottom: 0;
+}
+
+.prix {
+  flex: none;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Horaires */
+.horaires {
+  background: var(--nuit);
+  color: var(--bleu-pale);
+}
+
+.blocs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.bloc {
+  padding: 1rem 1.1rem;
+  border: 2px solid var(--bleu-pale);
+  border-radius: 0.5rem;
+}
+
+.bloc h3 {
+  color: var(--bleu-clair);
+}
+
+.bloc ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.bloc p:last-child {
+  margin-bottom: 0;
+}
+
+/* Venir */
+.venir address {
+  font-style: normal;
+}
+
+.infos {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+}
+
+.infos li {
+  margin-bottom: 0.4rem;
+}
+
+/* Pied de page */
+.pied {
+  padding: 1.5rem 0;
+  background: var(--nuit);
+  color: var(--bleu-pale);
+  border-top: 4px solid var(--bleu-gris);
+  font-size: 0.95rem;
+}
+
+.pied p {
+  margin: 0 0 0.4rem;
+}
+
+/* Écrans plus larges */
+@media (min-width: 40rem) {
+  h1 { font-size: 2.6rem; }
+  h2 { font-size: 1.9rem; }
+  .accroche h1 { font-size: 2.8rem; }
+  .accroche { padding: 4.5rem 0; }
+  main section { padding: 3.5rem 0; }
+  .grille-carte { grid-template-columns: repeat(2, 1fr); }
+  .blocs { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

@@ -1,0 +1,303 @@
+/* Le Pigala : feuille de style unique, sans police web ni framework.
+   Contrastes (texte sur fond), calculés :
+   - bleu nuit sur crème      13,4 : 1
+   - crème sur bleu nuit      13,4 : 1
+   - bleu nuit sur orange      4,7 : 1  (le texte blanc sur l'orange n'atteint que 3,1 : 1, il n'est pas utilisé)
+   Le vert houblon (3,8 : 1 sur crème) ne sert qu'en filets décoratifs, jamais pour du texte. */
+
+:root {
+  --orange: #F26B1D;
+  --nuit: #1D2A44;
+  --creme: #FFF6E9;
+  --houblon: #5C8A3A;
+  --blanc: #FFFFFF;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--nuit);
+  background: var(--creme);
+  overflow-wrap: break-word;
+}
+
+.conteneur {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 6vw, 3rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4.5vw, 2rem);
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--nuit);
+  outline-offset: 3px;
+}
+
+/* Lien d'évitement */
+.lien-evitement {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  padding: 0.5rem 1rem;
+  background: var(--creme);
+  color: var(--nuit);
+  z-index: 10;
+}
+
+.lien-evitement:focus {
+  top: 1rem;
+}
+
+/* En-tête */
+.entete {
+  background: var(--nuit);
+  color: var(--creme);
+  padding: 1rem 0 2.5rem;
+  border-bottom: 0.5rem solid var(--houblon);
+}
+
+.entete :focus-visible,
+.pied :focus-visible {
+  outline-color: var(--creme);
+}
+
+.marque {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.menu {
+  list-style: none;
+  margin: 0.5rem 0 2rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+}
+
+.menu a {
+  display: inline-block;
+  padding: 0.5rem 0;
+}
+
+.accroche {
+  font-size: 1.2rem;
+  max-width: 40rem;
+}
+
+/* Bouton d'appel : texte bleu nuit sur orange */
+.bouton {
+  display: inline-block;
+  padding: 0.85rem 1.5rem;
+  background: var(--orange);
+  color: var(--nuit);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  border: 2px solid var(--orange);
+}
+
+.bouton:hover {
+  background: var(--creme);
+  border-color: var(--orange);
+}
+
+/* Sections */
+.bloc {
+  padding: 2.5rem 0;
+}
+
+.bloc-creme {
+  background: var(--creme);
+}
+
+.bloc-blanc {
+  background: var(--blanc);
+}
+
+.citation {
+  margin: 0 0 1.5rem;
+  padding: 0.5rem 0 0.5rem 1rem;
+  border-left: 0.4rem solid var(--houblon);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.citation p {
+  margin: 0;
+}
+
+.trois {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.trois li {
+  padding: 1rem;
+  background: var(--blanc);
+  border-top: 0.3rem solid var(--orange);
+  border-radius: 0.25rem;
+}
+
+.trois p {
+  margin: 0;
+}
+
+.colonnes {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Carte */
+.plats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.plats li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--houblon);
+}
+
+.plats .nom {
+  font-weight: 700;
+}
+
+.plats .prix {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.plats .detail {
+  grid-column: 1 / -1;
+}
+
+/* Horaires */
+.horaires {
+  width: 100%;
+  max-width: 32rem;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+.horaires caption {
+  text-align: left;
+  font-weight: 700;
+  padding-bottom: 0.5rem;
+}
+
+.horaires th,
+.horaires td {
+  text-align: left;
+  padding: 0.6rem 0.5rem 0.6rem 0;
+  border-bottom: 1px solid var(--houblon);
+  vertical-align: top;
+}
+
+.rdv {
+  padding: 1.25rem;
+  background: var(--nuit);
+  color: var(--creme);
+  border-left: 0.5rem solid var(--orange);
+  border-radius: 0.25rem;
+}
+
+.rdv p:last-child {
+  margin-bottom: 0;
+}
+
+.quand {
+  font-weight: 700;
+}
+
+/* Adresse */
+.adresse {
+  font-style: normal;
+  display: grid;
+  gap: 0.5rem 2rem;
+  margin: 1.5rem 0;
+}
+
+.adresse p {
+  margin: 0;
+}
+
+/* Pied de page */
+.pied {
+  background: var(--nuit);
+  color: var(--creme);
+  padding: 1.5rem 0;
+  border-top: 0.5rem solid var(--houblon);
+}
+
+.pied p {
+  margin: 0 0 0.5rem;
+}
+
+.mention {
+  font-size: 0.95rem;
+}
+
+/* Écrans plus larges */
+@media (min-width: 40rem) {
+  .trois {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .colonnes {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .adresse {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

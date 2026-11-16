@@ -1,0 +1,61 @@
+/* Plan d'accès · schéma du trajet métro, Le Pigala
+   Contrastes (texte sur fond, minimum 4,5 pour 1) :
+   - bleu nuit sur crème : 13 pour 1
+   - lien orange sur bleu nuit : 4,7 pour 1 (le lien est posé sur le fond nuit
+     de la section, jamais sur le cadre crème du schéma)
+   Le vert houblon ne sert qu'au tracé du trajet, jamais au texte. */
+.plan-acces {
+  margin: 0 0 1.5rem;
+}
+
+.plan-acces-cadre {
+  max-width: 24rem;
+  margin: 0 0 1rem;
+  padding: 0.75rem;
+  background: var(--creme);
+  border: 3px solid var(--houblon);
+  border-radius: var(--rayon);
+}
+
+.plan-acces-cadre svg {
+  display: block;
+  width: 100%;
+}
+
+.plan-trajet {
+  stroke: var(--houblon);
+  stroke-width: 4;
+  stroke-dasharray: 2 8;
+  stroke-linecap: round;
+}
+
+.plan-metro {
+  fill: var(--nuit);
+}
+
+.plan-lieu {
+  fill: var(--orange);
+  stroke: var(--nuit);
+  stroke-width: 3;
+}
+
+.plan-ligne {
+  fill: var(--creme);
+  font-size: 14px;
+  font-weight: 800;
+  text-anchor: middle;
+}
+
+.plan-texte {
+  fill: var(--nuit);
+  font-size: 15px;
+}
+
+.plan-texte-fort {
+  font-weight: 800;
+}
+
+.plan-acces-note {
+  margin: 0 0 1rem;
+  font-size: 0.9375rem;
+}

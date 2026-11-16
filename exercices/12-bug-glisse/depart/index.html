@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Le Pigala · brasserie, bar et restaurant à Montreuil, Croix de Chavaux</title>
+  <meta name="description" content="Le Pigala, brasserie de quartier à Montreuil, à 3 minutes du métro Croix de Chavaux : pizzas, burgers, tapas, happy hour en terrasse et karaoké le jeudi.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/plan-acces.css">
+  <link rel="stylesheet" href="css/bouton-appel.css">
+  <link rel="stylesheet" href="css/mode-sombre.css">
+</head>
+<body>
+
+<a class="evitement" href="#contenu">Aller au contenu</a>
+
+<!-- DÉBUT en-tête -->
+<header class="entete">
+  <div class="conteneur entete-contenu">
+    <p class="marque">Le Pigala</p>
+    <nav aria-label="Navigation principale">
+      <ul class="menu">
+        <li><a href="#esprit">L'esprit</a></li>
+        <li><a href="#carte">La carte</a></li>
+        <li><a href="#horaires">Horaires</a></li>
+        <li><a href="#venir">Venir</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<!-- FIN en-tête -->
+
+<main id="contenu">
+
+  <!-- DÉBUT héros -->
+  <section class="bloc accueil" aria-labelledby="titre-accueil">
+    <div class="conteneur deux-colonnes">
+      <div>
+        <h1 id="titre-accueil">Le Pigala, brasserie de quartier à Montreuil</h1>
+        <p class="chapeau">
+          Restaurant à Montreuil et bar de quartier, ouvert cet été au 12 rue des Houblonnières,
+          à 3 minutes à pied du métro Croix de Chavaux. Sur place ou à emporter.
+        </p>
+        <p>
+          <a class="bouton bouton-appel" href="tel:+33123456789">Appeler le 01 23 45 67 89</a>
+        </p>
+      </div>
+      <!-- Emplacement photo : remplacer ce figure par <img src="img/facade.jpg" alt="…" width="…" height="…"> quand la photo arrive -->
+      <figure class="photo">
+        <p class="photo-etiquette">Photo : façade du Pigala</p>
+      </figure>
+    </div>
+  </section>
+  <!-- FIN héros -->
+
+  <!-- DÉBUT esprit -->
+  <section id="esprit" class="bloc bloc-alt" aria-labelledby="titre-esprit">
+    <div class="conteneur deux-colonnes deux-colonnes-inverse">
+      <div>
+        <h2 id="titre-esprit">L'esprit du lieu</h2>
+        <p class="citation">« On attend juste le premier pas, le reste c'est à nous de le faire. »</p>
+        <p>
+          Le Pigala est une brasserie-restaurant ouverte cet été à Montreuil, à deux pas du métro.
+          Vous mangez sur place ou vous emportez. La livraison passe par les plateformes.
+        </p>
+        <ul class="pastilles">
+          <li><strong>À manger :</strong> salades, burgers, pizzas, tapas, planches à partager</li>
+          <li><strong>À boire :</strong> bières pression, cocktails, happy hour terrasse</li>
+          <li><strong>À vivre :</strong> karaoké, soirées jeux, brunch, terrasse</li>
+        </ul>
+      </div>
+      <!-- Emplacement photo : remplacer ce figure par <img src="img/terrasse.jpg" alt="…" width="…" height="…"> quand la photo arrive -->
+      <figure class="photo">
+        <p class="photo-etiquette">Photo : terrasse du Pigala</p>
+      </figure>
+    </div>
+  </section>
+  <!-- FIN esprit -->
+
+  <!-- DÉBUT carte -->
+  <section id="carte" class="bloc" aria-labelledby="titre-carte">
+    <div class="conteneur">
+      <h2 id="titre-carte">La carte</h2>
+      <p class="happy-hour">Happy hour du mardi au vendredi, 17 h à 19 h : la pression à 2,50 € le 25 cl, le pichet à 10 €.</p>
+      <p id="carte-erreur" role="alert" hidden>La carte n'a pas pu être chargée.</p>
+      <div id="carte-contenu" class="deux-colonnes" hidden>
+        <div>
+          <h3>Bières et cidre</h3>
+          <ul id="liste-biere"></ul>
+        <div>
+          <h3>À manger</h3>
+          <ul id="liste-plat"></ul>
+        </div>
+      </div>
+      <noscript>
+        <div class="deux-colonnes">
+          <div>
+            <h3>Bières et cidre</h3>
+            <ul>
+              <li><span>Pigala Blonde</span> <span>Pression maison, légère et ronde, 25 cl</span> <span class="prix">3,50 €</span></li>
+              <li><span>Pigala Blonde 50 cl</span> <span>La même, en grand</span> <span class="prix">6,00 €</span></li>
+              <li><span>Houblonnière IPA</span> <span>Amère et fruitée, brassée à Montreuil, 33 cl</span> <span class="prix">6,50 €</span></li>
+              <li><span>Blanche du Métro</span> <span>Trouble, notes d'agrumes, 33 cl</span> <span class="prix">5,50 €</span></li>
+              <li><span>Ambrée de Chavaux</span> <span>Caramel et pain grillé, 33 cl</span> <span class="prix">6,00 €</span></li>
+              <li><span>Stout du Capitaine</span> <span>Noire, café et chocolat, 33 cl</span> <span class="prix">6,50 €</span></li>
+              <li><span>Sans alcool</span> <span>Blonde sans alcool, 33 cl</span> <span class="prix">4,50 €</span></li>
+              <li><span>Cidre brut</span> <span>Pression, 25 cl</span> <span class="prix">4,00 €</span></li>
+              <li><span>Pichet de blonde</span> <span>1 litre à partager</span> <span class="prix">14,00 €</span></li>
+              <li><span>Planche dégustation</span> <span>Quatre bières de 12 cl</span> <span class="prix">9,00 €</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>À manger</h3>
+            <ul>
+              <li><span>Salade Pigala</span> <span>Chèvre chaud, noix, miel, pain grillé</span> <span class="prix">12,50 €</span></li>
+              <li><span>Burger du Capitaine</span> <span>Steak haché, cheddar, oignons confits, frites maison</span> <span class="prix">15,00 €</span></li>
+              <li><span>Burger végétarien</span> <span>Galette de haricots rouges, avocat, frites maison</span> <span class="prix">14,00 €</span></li>
+              <li><span>Pizza Margherita</span> <span>Tomate, mozzarella, basilic</span> <span class="prix">11,00 €</span></li>
+              <li><span>Pizza Chavaux</span> <span>Tomate, chorizo, poivrons, oignons rouges</span> <span class="prix">14,00 €</span></li>
+              <li><span>Pizza quatre fromages</span> <span>Mozzarella, chèvre, bleu, comté</span> <span class="prix">13,50 €</span></li>
+              <li><span>Tapas du jour</span> <span>Trois assiettes à partager, selon le marché</span> <span class="prix">12,00 €</span></li>
+              <li><span>Planche mixte</span> <span>Charcuterie et fromages, pour deux</span> <span class="prix">18,00 €</span></li>
+              <li><span>Frites maison</span> <span>Avec la sauce du jour</span> <span class="prix">5,00 €</span></li>
+              <li><span>Dessert du jour</span> <span>Demandez au comptoir</span> <span class="prix">6,00 €</span></li>
+            </ul>
+          </div>
+        </div>
+      </noscript>
+    </div>
+  </section>
+  <!-- FIN carte -->
+
+  <!-- DÉBUT horaires -->
+  <section id="horaires" class="bloc bloc-alt" aria-labelledby="titre-horaires">
+    <div class="conteneur">
+      <h2 id="titre-horaires">Horaires, happy hour et karaoké</h2>
+
+      <div class="grille-horaires">
+        <article class="carte-info">
+          <h3>Ouverture</h3>
+          <ul class="liste-simple">
+            <li>Du mardi au samedi : 11&nbsp;h&nbsp;30 à minuit</li>
+            <li>Dimanche : 11&nbsp;h à 16&nbsp;h, brunch</li>
+            <li>Lundi : fermé</li>
+          </ul>
+        </article>
+
+        <article class="carte-info">
+          <h3>Happy hour en terrasse</h3>
+          <p>De 17&nbsp;h à 19&nbsp;h, du mardi au vendredi.</p>
+        </article>
+
+        <article class="carte-info">
+          <h3>Karaoké le jeudi</h3>
+          <p>De 20&nbsp;h à 23&nbsp;h.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- FIN horaires -->
+
+  <!-- DÉBUT venir -->
+  <section id="venir" class="bloc" aria-labelledby="titre-venir">
+    <div class="conteneur deux-colonnes">
+      <div>
+        <h2 id="titre-venir">Comment venir</h2>
+        <p>Brasserie Croix de Chavaux, à deux pas du métro.</p>
+        <address>
+          <p><strong>Le Pigala</strong><br>12 rue des Houblonnières<br>93100 Montreuil</p>
+          <p>Téléphone : <a href="tel:+33123456789">01 23 45 67 89</a></p>
+        </address>
+        <p>Métro Croix de Chavaux (ligne 9), 3 minutes à pied.</p>
+        <p>
+          <a class="bouton" href="tel:+33123456789">Appeler le 01 23 45 67 89</a>
+        </p>
+      </div>
+
+      <!-- DÉBUT plan-acces -->
+      <div class="plan-acces">
+        <div class="plan-acces-cadre">
+          <svg viewBox="0 0 320 190" role="img" aria-labelledby="titre-plan-svg">
+            <title id="titre-plan-svg">Schéma du trajet, sans échelle : de la station de métro Croix de Chavaux (ligne 9) au Pigala, 12 rue des Houblonnières, 3 minutes à pied.</title>
+            <line class="plan-trajet" x1="30" y1="62" x2="30" y2="130"/>
+            <circle class="plan-metro" cx="30" cy="40" r="20"/>
+            <text class="plan-ligne" x="30" y="45">9</text>
+            <circle class="plan-lieu" cx="30" cy="152" r="14"/>
+            <text class="plan-texte plan-texte-fort" x="62" y="36">Métro Croix de Chavaux</text>
+            <text class="plan-texte" x="62" y="56">Ligne 9</text>
+            <text class="plan-texte" x="50" y="102">3 minutes à pied</text>
+            <text class="plan-texte plan-texte-fort" x="62" y="148">Le Pigala</text>
+            <text class="plan-texte" x="62" y="168">12 rue des Houblonnières</text>
+          </svg>
+        </div>
+        <p class="plan-acces-note">Schéma du trajet, sans échelle.</p>
+        <p>
+          <a href="https://www.openstreetmap.org/search?query=12%20rue%20des%20Houblonni%C3%A8res%2C%2093100%20Montreuil" target="_blank" rel="noopener">Ouvrir le plan dans OpenStreetMap</a>
+        </p>
+      </div>
+      <!-- FIN plan-acces -->
+    </div>
+  </section>
+  <!-- FIN venir -->
+
+</main>
+
+<!-- DÉBUT pied de page -->
+<footer class="pied">
+  <div class="conteneur">
+    <p>Le Pigala · 12 rue des Houblonnières, 93100 Montreuil · <a href="tel:+33123456789">01 23 45 67 89</a></p>
+    <p>Du mardi au samedi 11&nbsp;h&nbsp;30 à minuit, dimanche 11&nbsp;h à 16&nbsp;h, fermé le lundi.</p>
+  </div>
+</footer>
+<!-- FIN pied de page -->
+
+<script src="script.js" defer></script>
+
+</body>
+</html>
