@@ -6,7 +6,7 @@
 
 ## Ce qu'on fait
 
-Votre serveur enregistre des réservations, donc des données personnelles (fictives ici, traitées comme réelles). Vous allez d'abord **prouver** qu'elles fuient, avec le navigateur et avec un test. Ensuite vous préparez un extrait qu'on peut envoyer à un modèle sans exposer personne. Enfin vous corrigez, en trois temps, et vous prouvez chaque correction. Un correctif qui règle l'injection ne règle pas tout : l'étape 7 le montre.
+Votre serveur enregistre des réservations, donc des données personnelles (fictives ici, traitées comme réelles). Vous allez d'abord **prouver** qu'elles fuient, avec le navigateur et avec un test. Ensuite vous préparerez un extrait qu'on peut envoyer à un modèle sans exposer personne. Enfin vous corrigerez, en trois temps, et vous prouverez chaque correction. Un correctif qui règle l'injection ne règle pas tout : l'étape 7 le montre.
 
 Toutes les données sont fictives (`exercices/21-securiser-workflow/depart/SOURCES.md`). Sans abonnement Claude Code : mêmes prompts dans Copilot Free en mode **Agent** (« New Chat » repasse en Ask : remettez Agent à chaque fois), ou suivez sur l'écran partagé. Mode de permissions **Manual** : lisez chaque permission avant de l'accepter. Rien de personnel à l'écran.
 
