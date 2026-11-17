@@ -407,7 +407,16 @@ python gerant.py Lemaire
 
 Vous devez voir une ligne avec la réservation, puis « 1 réservation(s). ».
 
-**À retenir :** retirer la recherche du serveur supprime le problème, au lieu de le gérer.
+**À retenir :** on a retiré la recherche du site, au lieu de la protéger. Une porte fermée à clé peut être forcée, un mur ne se force pas. Ce qui n'est pas en ligne ne peut pas fuir.
+
+**Et dans un vrai projet ?** Le gérant voudrait un écran sur son téléphone, pas un programme dans un terminal. Il faudrait garder la recherche en ligne, et la protéger :
+
+- un compte pour le gérant, avec un mot de passe et un code reçu sur son téléphone ;
+- une limite au nombre d'essais ;
+- un espace séparé du site public ;
+- un journal qui note qui a cherché quoi.
+
+C'est plusieurs jours de travail, à entretenir ensuite. Beaucoup de restaurants prennent plutôt un service de réservation existant, dont c'est le métier.
 
 ### Étape 8 : les règles du projet
 
