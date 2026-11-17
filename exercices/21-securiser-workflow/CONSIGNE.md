@@ -83,15 +83,63 @@ Résultat attendu : une réservation en clair, avec le nom, le téléphone, le c
 
 ### Étape 1 : les tests, au rouge
 
+**À quoi sert cette étape.** Vous venez de voir de vos yeux qu'une réservation sort en clair. Maintenant, on le fait constater par un programme, pour pouvoir le revérifier en une commande après chaque réparation.
+
+Trois mots à connaître :
+
+- **un test** est un petit programme qui pose une question au serveur et répond par oui ou par non ;
+- **au rouge** veut dire que le test échoue : la réponse n'est pas celle qu'on voulait ;
+- **au vert** veut dire qu'il réussit.
+
+L'exercice fournit six tests. Au départ, quatre sont au rouge, et c'est voulu : ce sont les quatre choses que vous allez réparer. À la fin de l'exercice, les six seront au vert. Ce sera votre preuve.
+
+**Où.** Dans le premier terminal, celui où le serveur ne tourne pas, à la racine de votre dossier. Laissez le serveur tourner dans l'autre.
+
+**1. Allez dans le dossier de l'exercice :**
+
 ```
 cd exercices/21-securiser-workflow/depart
 ```
+
+**2. Lancez les six tests.** Avant de taper la commande, voici ce qu'elle va faire :
+
+- `unittest` est l'outil de test fourni avec Python, il n'y a rien à installer ;
+- il cherche dans le dossier le fichier `test_securite.py`, qui contient les six tests ;
+- il les lance l'un après l'autre. Chaque test pose sa question au serveur et note la réponse ;
+- `-v` lui demande d'afficher une ligne par test, pour qu'on voie lequel réussit et lequel échoue ;
+- cela prend quelques secondes, et cela ne modifie aucun de vos fichiers.
 
 ```
 python -m unittest -v
 ```
 
-Résultat attendu : `Ran 6 tests`, puis `FAILED (failures=4)`. Deux tests passent : « une réservation valide s'enregistre » et « la carte s'affiche ». Quatre échouent : la base se télécharge, le code se télécharge, l'injection renvoie la table, la recherche répond à n'importe qui. Le test démarre lui-même le serveur dans une copie temporaire : il n'écrit jamais dans votre base, et vous n'avez rien à lancer avant. Si `python` n'existe pas, tapez `python3`. Une autre erreur (`ModuleNotFoundError`, `can't open file`) veut dire que vous n'êtes pas dans le bon dossier : `pwd` doit finir par `exercices/21-securiser-workflow/depart`.
+**Ce que vous devez voir.** Beaucoup de texte : le détail de chaque échec, que vous n'avez pas à lire. Regardez seulement :
+
+- les six lignes de tests, qui finissent chacune par `ok` ou par `FAIL` ;
+- les deux dernières lignes : `Ran 6 tests`, puis `FAILED (failures=4)`.
+
+**Les six tests, et ce que chacun demande au serveur :**
+
+| Test | La question posée | Au départ |
+|---|---|---|
+| `test_la_carte_s_affiche` | La carte du restaurant s'affiche-t-elle ? | `ok` |
+| `test_une_reservation_valide_s_enregistre` | Une réservation normale est-elle bien enregistrée ? | `ok` |
+| `test_la_base_ne_se_telecharge_pas` | Le serveur refuse-t-il de donner le fichier de la base à qui le demande ? | `FAIL` : il le donne |
+| `test_le_code_ne_se_telecharge_pas` | Refuse-t-il de donner son propre code ? | `FAIL` : il le donne |
+| `test_l_injection_ne_renvoie_pas_la_table` | Résiste-t-il à un nom trafiqué pour faire sortir toutes les réservations ? | `FAIL` : tout sort |
+| `test_la_recherche_n_est_pas_publique` | La recherche par nom est-elle fermée aux inconnus ? | `FAIL` : elle répond à n'importe qui |
+
+Les deux tests au vert ne sont pas là par hasard : ils vérifieront, après chaque réparation, que vous n'avez pas cassé ce qui marchait.
+
+**Rien à craindre en les lançant.** Les tests démarrent eux-mêmes un serveur, dans une copie temporaire du dossier. Ils n'écrivent jamais dans votre base, et vous n'avez rien à lancer avant.
+
+**Si ce n'est pas ce que vous voyez :**
+
+| Ce que le terminal affiche | Cause | Quoi faire |
+|---|---|---|
+| `python` n'est pas reconnu | Sur Mac et certains Linux, la commande s'appelle autrement | Tapez `python3` à la place |
+| `ModuleNotFoundError` ou `can't open file` | Vous n'êtes pas dans le bon dossier | `pwd` doit finir par `exercices/21-securiser-workflow/depart` |
+| `Ran 0 tests` | Même cause | Même remède |
 
 ### Étape 2 : prouver la fuite avec le navigateur
 
