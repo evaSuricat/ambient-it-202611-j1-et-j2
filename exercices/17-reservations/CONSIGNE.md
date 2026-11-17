@@ -66,7 +66,14 @@ Résultat attendu : `(31, 'Essai Stagiaire', '2026-12-12', 2)`, avec vos valeurs
 
 ### Étape 6 : le cas d'échec
 
-**À quoi sert cette étape.** Un client a la page ouverte devant lui et remplit le formulaire. Pendant ce temps, le serveur tombe. Quand il clique sur le bouton, sa réservation ne part pas. Une page mal faite ne dit rien, et il croit avoir réservé. La vôtre doit le lui dire, et lui donner le téléphone. On vérifie donc ce que la page affiche quand l'envoi échoue. C'est un cas qu'un outil écrit rarement tout seul, et qu'on ne voit jamais si on ne teste que quand tout marche.
+**En une phrase : on vérifie que la page prévient la personne quand sa réservation n'est pas partie.**
+
+La situation : un client a la page ouverte devant lui et remplit le formulaire. Pendant ce temps, le serveur tombe. Quand il clique sur le bouton, sa réservation ne part pas. Une page mal faite ne dit rien, et il croit avoir réservé. La vôtre doit le lui dire, et lui donner le téléphone.
+
+Deux raisons de le faire :
+
+- **Ce message ne se voit que si on le provoque.** Tant que le serveur tourne, il n'apparaît jamais. Sans cette étape, personne ne sait s'il existe ni s'il dit la bonne chose. Un outil écrit volontiers le cas où tout marche, plus rarement le cas d'échec : c'est vous qui validez ce texte.
+- **On apprend à distinguer deux pannes**, en regardant la console. Une erreur réseau veut dire « le serveur ne répond pas » : c'est ce qu'on provoque ici. Un 404 voudrait dire « le serveur répond, mais l'adresse appelée par la page est fausse » : ce serait un bug dans le code.
 
 Dans l'ordre :
 
