@@ -1,0 +1,7 @@
+secrets.env
+reservations.csv
+*.db
+donnees
+.git
+.venv
+jeton.txt

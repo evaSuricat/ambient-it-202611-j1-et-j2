@@ -1,0 +1,9 @@
+CMD ["cat" "/app/app.py"]
+RUN /bin/sh -c test -s /run/secrets/jeton && echo "Jeton présent pendant la construction" > /app/verification.log # buildkit
+COPY app.py . # buildkit
+WORKDIR /app
+/bin/sh -c #(nop)  CMD ["/bin/bash"]
+/bin/sh -c #(nop) ADD file:eed88e94d6aa7c9da62836e137f889e03988c1a6b237b0cedb6ca666dfaa98ea in / 
+/bin/sh -c #(nop)  LABEL org.opencontainers.image.version=24.04
+/bin/sh -c #(nop)  ARG LAUNCHPAD_BUILD_ARCH
+/bin/sh -c #(nop)  ARG RELEASE

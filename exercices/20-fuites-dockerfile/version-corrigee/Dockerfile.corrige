@@ -1,0 +1,7 @@
+FROM ubuntu:24.04
+WORKDIR /app
+COPY app.py .
+# Le jeton est lu pendant cette seule commande, depuis un secret de build.
+# Il n'est écrit dans aucune couche et n'apparaît pas dans docker history.
+RUN --mount=type=secret,id=jeton test -s /run/secrets/jeton && echo "Jeton présent pendant la construction" > /app/verification.log
+CMD ["cat", "/app/app.py"]

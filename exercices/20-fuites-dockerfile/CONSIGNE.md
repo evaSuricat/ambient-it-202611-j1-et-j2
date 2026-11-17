@@ -6,11 +6,13 @@
 
 ## Ce qu'on fait
 
-Une image Docker se publie : celui qui la télécharge reçoit tout ce qu'elle contient, y compris ce qu'on a cru supprimer. `exercices/20-fuites-dockerfile/depart/` contient le `Dockerfile` d'un Pigala qui n'a rien d'un vrai déploiement, et la sortie réelle de `docker history`. Vous lisez, vous trouvez trois fuites, vous écrivez la version corrigée.
+Une image Docker se publie : celui qui la télécharge reçoit tout ce qu'elle contient, y compris ce qu'on a cru supprimer. `exercices/20-fuites-dockerfile/depart/` contient le `Dockerfile` d'un Pigala qui n'a rien d'un vrai déploiement, et la sortie réelle de `docker history`. Vous lisez, vous trouvez trois fuites, puis vous lisez la version corrigée, qui est fournie.
 
 **Docker n'est exigé de personne.** Tout se fait en lisant les fichiers. Les jetons sont de faux jetons visiblement faux. Si vous avez Docker, un chemin facultatif à l'étape 5 refait le relevé ; il télécharge l'image de base `ubuntu:24.04` (environ 78 Mo une fois installée). La formatrice fait la démonstration sur son poste sans afficher la liste de ses images.
 
-Dix minutes pour huit gestes, c'est court : un **seul commit**, à la fin (étape 7), et l'étape 6 (le prompt à l'outil) ne se fait que si le temps le permet. Les étapes 1 à 4 sont le cœur de l'exercice.
+Dix minutes, c'est court : un **seul commit**, à la fin (étape 7). Les étapes 1 à 4 bis sont le cœur de l'exercice. Les étapes 5 et 6 sont facultatives.
+
+**Vous n'êtes pas développeur, ou vous n'avez jamais utilisé Docker ?** L'exercice est fait pour vous aussi. Retenez une seule idée : une image Docker est un colis qu'on envoie, et celui qui le reçoit peut l'ouvrir en entier. Les étapes 1 à 4 bis ne demandent que de lire.
 
 ### Étape 1 : lire le Dockerfile, sans l'IA
 
@@ -30,6 +32,16 @@ Puis la ligne `RUN ... rm secrets.env` : le fichier est supprimé. Pensez-vous q
 
 Ouvrez `exercices/20-fuites-dockerfile/depart/preuve-couches.txt`. C'est un relevé réel du 02/11/2026. Lisez-le : le fichier supprimé est toujours dans la couche 3. La suppression de la couche 4 n'ajoute qu'une marque par-dessus. Comparez avec votre réponse de l'étape 3.
 
+### Étape 4 bis : lire la version corrigée
+
+Ouvrez `exercices/20-fuites-dockerfile/version-corrigee/LISEZ-MOI.md`. Il présente la version corrigée, fournie et vérifiée :
+
+- un tableau « avant, après » pour chacune des trois fuites ;
+- le fichier `.dockerignore`, expliqué ligne par ligne ;
+- la preuve : cherchez « factice » dans `version-corrigee/historique-corrige.txt`. Résultat attendu : aucune ligne, contre trois dans `depart/historique-docker.txt`.
+
+Rien à lancer, rien à écrire.
+
 ### Étape 5 (facultative, si Docker est installé) : refaire le relevé
 
 Depuis la racine. Le premier relevé construit l'image, le second affiche son historique, le troisième la supprime par son nom (rien d'autre n'est touché) :
@@ -48,14 +60,14 @@ docker rmi pigala-demo:fuite
 
 Résultat attendu : le deuxième affiche les mêmes lignes que `historique-docker.txt`. Si le démon répond « Cannot connect to the Docker daemon », Docker Desktop n'est pas démarré : sautez cette étape, rien n'a été construit. N'utilisez jamais `docker images` devant le groupe : votre poste peut afficher les images d'un autre projet.
 
-### Étape 6 (seulement si le temps le permet) : écrire la version corrigée
+### Étape 6 (facultative, pour qui veut essayer) : faire écrire la version corrigée par l'outil
 
-Si le temps manque, passez directement à l'étape 7 : les réponses des étapes 1 et 3 sont l'essentiel, la version corrigée peut se faire plus tard.
+Si le temps manque, passez directement à l'étape 7 : les réponses des étapes 1 et 3 sont l'essentiel. Cette étape sert à voir ce qu'un outil propose, puis à le comparer à la version fournie dans `version-corrigee/`.
 
 Dans Claude Code ou Copilot en mode Agent (vérifiez le sélecteur après un « New Chat ») :
 
 ```
-Dans exercices/20-fuites-dockerfile/depart/, lis le Dockerfile et historique-docker.txt. Crée Dockerfile.corrige et .dockerignore : plus aucun secret dans ARG, ENV ni COPY ; le jeton est lu par un secret de build (RUN --mount=type=secret) ; seul app.py est copié ; le .dockerignore écarte secrets.env, reservations.csv, les fichiers .db et le dossier .git. N'exécute aucune commande Docker.
+Dans exercices/20-fuites-dockerfile/depart/, lis le Dockerfile et historique-docker.txt. Crée Dockerfile.corrige et .dockerignore : plus aucun secret dans ARG, ENV ni COPY ; le jeton est lu par un secret de build (RUN --mount=type=secret) ; seul app.py est copié ; le .dockerignore écarte secrets.env, reservations.csv, les fichiers .db et le dossier .git. N'ouvre pas le dossier version-corrigee. N'exécute aucune commande Docker.
 ```
 
 Relisez le résultat avec votre grille : le jeton est-il écrit quelque part en clair ? Reste-t-il un `ARG` ou un `ENV` qui porte une valeur secrète ? Le `COPY` est-il limité à ce qui sert ? L'outil peut corriger deux fuites sur trois et en oublier une : c'est à vous de compter.
