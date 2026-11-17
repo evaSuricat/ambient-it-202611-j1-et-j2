@@ -10,6 +10,11 @@ Un tri **à l'oral**, projeté par la formatrice, **sans outil IA** : ni Claude 
 
 `exercices/18-avant-d-executer/depart/reponse-ia.md` est une réponse figée d'un assistant à la question « comment sécuriser la table des réservations et nettoyer les anciennes ? ». Elle a l'air sérieuse. Elle contient du juste et du faux. Le fichier est écrit à la main pour l'exercice (voir `exercices/18-avant-d-executer/depart/SOURCES.md`) : il imite des erreurs réelles de ce type d'outil.
 
+Le dossier `depart/` contient deux autres fichiers. **Vous n'avez rien à en faire pendant la séance** :
+
+- `tri.md` est la version écrite du même tri, avec un tableau à remplir. On ne le remplit pas aujourd'hui : le tri se fait à l'oral. Il reste là pour qui veut le refaire seul, plus tard ;
+- `relecture-agent.md` est le verdict d'un second agent sur la même réponse (« aucun problème »). La formatrice le montrera à la fin, en une phrase.
+
 ### Étape 1 : lire (3 minutes)
 
 Chacun ouvre `exercices/18-avant-d-executer/depart/reponse-ia.md` (ou suit l'écran projeté) et le lit une fois en entier. Ne copiez aucune commande dans un terminal, n'installez rien.
