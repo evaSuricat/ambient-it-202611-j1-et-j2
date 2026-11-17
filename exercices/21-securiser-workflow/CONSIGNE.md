@@ -343,31 +343,46 @@ Vous devez voir `FAILED (failures=1)`. Un seul test reste au rouge, « la recher
 
 ### Étape 7 : le piège qui reste
 
-Relancez le serveur (`python servir.py` dans le second terminal) et rouvrez :
+**Ce qu'on va faire.** Constater que la recherche répond encore à n'importe qui, puis la retirer du serveur.
+
+**1. Constatez.** Relancez le serveur (`python servir.py` dans le second terminal) et rouvrez :
 
 ```
 http://127.0.0.1:8000/api/reservations?nom=Lemaire
 ```
 
-Résultat attendu : la réservation, avec téléphone et courriel, **à n'importe quel visiteur**. L'injection est réglée, l'accès ne l'est pas : la route répond sans demander qui vous êtes, et ce serveur n'a aucune notion d'utilisateur. Une requête paramétrée sur une route ouverte reste une fuite. Que faire ? Écrire une identification complète ne se fait pas en quelques minutes. Décision pour l'exercice : le serveur **public** ne cherche plus rien. La recherche passe dans un script local que le gérant lance sur son poste.
+La réservation s'affiche encore, avec le téléphone et le courriel.
+
+**Pourquoi ?** Vous avez réparé deux choses :
+
+- on ne peut plus tromper la recherche pour tout faire sortir (étape 5) ;
+- on ne peut plus télécharger la base (étape 6).
+
+Mais la recherche répond toujours à qui la demande, sans vérifier qui il est. Une recherche bien écrite, ouverte à tout le monde, reste une fuite.
+
+**2. Décidez.** Vérifier qui demande, c'est construire une identification : des mots de passe à ranger, à changer, des essais à limiter. Cela ne se fait pas en quelques minutes. Pour l'exercice, on fait plus simple : le serveur public ne cherche plus rien. La recherche devient un script que le gérant lance sur son propre poste.
+
+**3. Envoyez le prompt :**
 
 ```
 Dans exercices/21-securiser-workflow/depart/, retire de servir.py la route GET /api/reservations : le serveur public ne sait plus que recevoir une réservation (POST). Écris gerant.py, un script à lancer sur le poste (python gerant.py Lemaire) qui cherche une réservation par nom dans donnees/reservations.db, en lecture seule et avec un paramètre « ? ». Ne lance pas le serveur.
 ```
 
-Arrêtez le serveur, relancez-le, rouvrez l'adresse : 404. Puis :
+**4. Vérifiez, en trois gestes.** Arrêtez le serveur, relancez-le, et rouvrez l'adresse : elle répond 404, « introuvable ». Puis les tests :
 
 ```
 python -m unittest
 ```
 
-Résultat attendu : `OK`, six tests. Essayez le script du gérant :
+Vous devez voir `OK` : les six tests sont au vert. Enfin, le script du gérant :
 
 ```
 python gerant.py Lemaire
 ```
 
-Résultat attendu : une ligne avec la réservation, puis « 1 réservation(s). ». Si vous aviez envie de protéger la route par un mot de passe : c'est une vraie solution, mais elle demande de la stocker, de la changer, de limiter les essais. Retirer la route supprime le problème au lieu de le gérer.
+Vous devez voir une ligne avec la réservation, puis « 1 réservation(s). ».
+
+**À retenir :** retirer la recherche du serveur supprime le problème, au lieu de le gérer.
 
 ### Étape 8 : les règles du projet
 
