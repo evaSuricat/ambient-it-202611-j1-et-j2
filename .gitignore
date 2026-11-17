@@ -11,6 +11,11 @@ __pycache__/
 # Outils de l'éditeur et des agents
 .playwright-mcp/
 
+# Hook chrono-tokens (ressources/hooks/chrono-tokens) : son journal et le réglage
+# personnel de Claude Code restent sur le poste, jamais dans un commit.
+.claude/chrono-tokens/
+.claude/settings.local.json
+
 # Volontairement absent : la règle « rapports/ » du jour 1 était trop large.
 # Les fichiers carte.db des depart/ sont versionnés exprès (données fictives).
 

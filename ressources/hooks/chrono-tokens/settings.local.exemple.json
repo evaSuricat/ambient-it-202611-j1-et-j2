@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "py",
+            "args": ["-3.12", "${CLAUDE_PROJECT_DIR}/.claude/chrono-tokens/chrono_tokens.py", "debut"],
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "py",
+            "args": ["-3.12", "${CLAUDE_PROJECT_DIR}/.claude/chrono-tokens/chrono_tokens.py", "fin"],
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}
