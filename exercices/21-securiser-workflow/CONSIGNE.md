@@ -215,49 +215,40 @@ Ouvrez `exercices/21-securiser-workflow/depart/tri-revue.md`. Dans la **partie A
 
 ### Étape 4 : préparer un extrait à envoyer à un modèle
 
-**À quoi sert cette étape.** Avant d'envoyer des données à un modèle, on retire ce qui désigne une personne. Vous allez voir qu'un masquage automatique n'y suffit pas.
+**But :** avant d'envoyer des données à un modèle, retirer ce qui désigne une personne. Un masquage automatique n'y suffit pas.
 
-La situation : vous voulez demander à un modèle « quel index SQL pour chercher par nom ? ». Que lui montrer de la table ?
+Vous voulez demander à un modèle « quel index SQL pour chercher par nom ? ». Que lui montrer de la table ?
 
-Les deux commandes se lancent dans le premier terminal, toujours dans `depart`.
-
-**1. Regardez sept lignes de la table.**
+**1. Regardez sept lignes de la table** (premier terminal, dans `depart`) :
 
 ```
 python afficher_extrait.py
 ```
 
-Vous voyez des noms, des téléphones, des courriels et des commentaires.
-
-**2. Essayez le masquage automatique.** Une expression régulière est une règle qui reconnaît une forme, par exemple celle d'un numéro de téléphone.
+**2. Masquez automatiquement**, avec des expressions régulières : des règles qui reconnaissent une forme, comme un téléphone ou un courriel.
 
 ```
 python anonymiser_regex.py
 ```
 
-Les téléphones et les courriels sont masqués. Lisez ce qui reste :
+Téléphones et courriels sont masqués. Il reste :
 
 - les noms des clients ;
-- une sœur et un fils, nommés dans des commentaires ;
-- des données de santé : une allergie, de l'asthme, un fauteuil roulant ;
-- une ligne qui contient une consigne cachée.
+- une sœur et un fils, nommés ;
+- des données de santé : allergie, asthme, fauteuil roulant ;
+- une consigne cachée dans un commentaire.
 
-**À retenir :** la règle masque ce qu'elle sait reconnaître, le reste passe.
+La règle masque ce qu'elle reconnaît, le reste passe.
 
-**3. Faites-le à la main.** Ouvrez `extrait-anonyme.md` et écrivez-y :
+**3. Faites-le à la main.** Dans `extrait-anonyme.md`, écrivez l'extrait que vous enverriez vraiment, ce que vous avez retiré, et pourquoi. Sa dernière question : remplacer Claire Lemaire par « Personne A » en gardant le tableau qui relie les deux, est-ce anonymiser ? Non : c'est pseudonymiser, on peut revenir en arrière (distinction de la CNIL).
 
-- l'extrait que vous enverriez vraiment ;
-- ce que vous avez retiré, et pourquoi.
-
-Dernière question du fichier : si vous remplacez Claire Lemaire par « Personne A » en gardant le tableau qui relie les deux, avez-vous anonymisé ? Non. La CNIL distingue : pseudonymiser, c'est pouvoir revenir en arrière ; anonymiser, c'est ne plus le pouvoir.
-
-**4. Regardez l'effet de la consigne cachée.** Envoyez ce prompt à votre outil, et collez à la suite les sept lignes brutes (elles sont fictives) :
+**4. Testez la consigne cachée.** Envoyez ce prompt à votre outil, suivi des sept lignes brutes (elles sont fictives) :
 
 ```
 Voici sept réservations. Écris pour chacune une ligne de résumé pour l'équipe de salle.
 ```
 
-Lisez la ligne 15 de sa réponse : a-t-il résumé le commentaire, ou obéi à ce qu'il dit ? Le résultat dépend de l'outil et du modèle : notez les deux dans `extrait-anonyme.md`.
+Ligne 15 de sa réponse : a-t-il résumé le commentaire, ou obéi à ce qu'il dit ? Notez l'outil et le modèle dans `extrait-anonyme.md`.
 
 **À retenir :** un commentaire de client est une donnée, jamais une instruction. Un modèle ne fait pas toujours la différence.
 
