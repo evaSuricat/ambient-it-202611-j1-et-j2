@@ -475,7 +475,7 @@ D'après la documentation (lue le 02/11/2026), cette commande devrait passer. La
 
 **À retenir :** une règle de refus évite une erreur d'inattention. Ce n'est pas une barrière. Pour une vraie barrière, Claude Code a un mode « bac à sable » (sandbox), qui enferme l'outil dans un périmètre.
 
-**Avec Copilot Free**, l'équivalent n'a pas été vérifié. Gardez les cinq règles d'`AGENTS.md`, sautez les points 2 à 4, et dites-le dans votre tri.
+**Avec Copilot Free**, gardez les cinq règles d'`AGENTS.md` et passez à l'étape 9 : les points 2 à 4 sont propres à Claude Code.
 
 ### Étape 9 : la revue
 

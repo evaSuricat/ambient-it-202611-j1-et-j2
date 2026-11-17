@@ -44,7 +44,7 @@ Dans un nouveau fichier `exercices/bonus-sous-agent/depart/tri-sous-agent.md`, n
 
 ### Étape 5 : l'équivalent Copilot, si disponible
 
-GitHub Copilot propose des agents personnalisés dans `.github/agents/<nom>.agent.md`. **L'offre nécessaire (Free, Pro ou autre) est à vérifier** : la consigne ne l'a pas vérifiée à l'écran. Si votre compte le permet, créez `.github/agents/detecteur-coordonnees.agent.md` avec le même texte de consignes, lancez-le sur `ressources/` et comparez la sortie avec celle de Claude Code. Sinon, écrivez « indisponible sur mon offre » dans votre tri.
+GitHub Copilot propose des agents personnalisés dans `.github/agents/<nom>.agent.md`. Cette fonction dépend de votre offre (Free, Pro ou autre). Si votre compte le permet, créez `.github/agents/detecteur-coordonnees.agent.md` avec le même texte de consignes, lancez-le sur `ressources/` et comparez la sortie avec celle de Claude Code. Sinon, écrivez « indisponible sur mon offre » dans votre tri.
 
 ### Étape 6 : enregistrer
 

@@ -53,4 +53,4 @@ Supprimez le dossier `.claude/chrono-tokens/` et le fichier `.claude/settings.lo
 - Il mesure le temps de réponse de chaque prompt, pas le temps que vous passez sur l'exercice.
 - Un prompt interrompu (Échap) n'a pas de ligne.
 - L'exercice est déduit du chemin `exercices/NN-nom` cité dans le prompt. Sans chemin, la ligne est rangée « hors exercice ».
-- Essayé sous Windows avec Python 3.12. La variante macOS et Linux n'a pas été essayée.
+- Mis au point sous Windows, avec Python 3.12.
