@@ -185,7 +185,8 @@ Maintenant un diagnostic par un **sous-agent**. Un sous-agent est un fichier Mar
 Utilise le sous-agent relecteur-code sur exercices/21-securiser-workflow/depart/servir.py.
 ```
 
-Résultat attendu : Claude Code délègue au sous-agent d'après sa description, et la réponse montre qu'un sous-agent a tourné (une ligne de tâche déléguée à `relecteur-code`, dont l'aspect dépend de la version). Vous obtenez une liste avec numéros de ligne, une gravité de 1 à 3 et une correction par point, puis ce qu'il n'a pas pu vérifier. Si la réponse vient de Claude seul, sans mention du sous-agent, redites la même phrase en commençant par « Délègue à ». La commande `/agents` n'est pas nécessaire : selon la documentation lue le 11/11/2026, elle affiche seulement un rappel d'éditer `.claude/agents/` sur les versions récentes, et ouvre un assistant avec la liste des agents sur les anciennes.
+Résultat attendu : Claude Code délègue au sous-agent d'après sa description, et la réponse montre qu'un sous-agent a tourné (une ligne de tâche déléguée à `relecteur-code`, dont l'aspect dépend de la version). Vous obtenez une liste avec numéros de ligne, une gravité de 1 à 3 et une correction par point, puis ce qu'il n'a pas pu vérifier.
+ Si la réponse vient de Claude seul, sans mention du sous-agent, redites la même phrase en commençant par « Délègue à ». La commande `/agents` n'est pas nécessaire : selon la documentation lue le 11/11/2026, elle affiche seulement un rappel d'éditer `.claude/agents/` sur les versions récentes, et ouvre un assistant avec la liste des agents sur les anciennes.
 
 **Voir ce que le sous-agent a fait.** Ce que Claude vous écrit n'est pas le rapport du sous-agent : c'est le résumé qu'il en fait. L'ordre des points peut changer, des détails disparaissent. Pour voir le travail lui-même :
 
@@ -211,7 +212,9 @@ Les libellés sont en anglais et leur aspect dépend de la version (relevé du 1
 
 « Lecture seule » veut dire qu'il ne modifie rien. Cela ne veut pas dire qu'il ne lit que ce qu'on lui montre. Gardez votre réponse en tête : c'est le sujet de l'étape 4.
 
-Ouvrez `exercices/21-securiser-workflow/depart/tri-revue.md`. Dans la **partie A**, recopiez ses trois premières propositions et triez-les : juste, faux ou à ignorer, pourquoi, comment vous l'avez vérifié. Notez l'outil et le modèle. Sans abonnement Claude Code : dans Copilot, sélectionnez le contenu de `servir.py`, clic droit, l'entrée de revue de Copilot (son libellé exact, « Review » ou « Review and Comment », est à relever à l'écran), même tri ; la revue peut ne rien dire. Le sous-agent propose, vous décidez : il peut oublier un point ou en inventer un. **Ne corrigez rien encore** : c'est l'objet des étapes suivantes.
+Ouvrez `exercices/21-securiser-workflow/depart/tri-revue.md`. Dans la **partie A**, recopiez ses trois premières propositions et triez-les : juste, faux ou à ignorer, pourquoi, comment vous l'avez vérifié. Notez l'outil et le modèle. 
+
+Sans abonnement Claude Code : dans Copilot, sélectionnez le contenu de `servir.py`, clic droit, l'entrée de revue de Copilot « Review », même tri ; la revue peut ne rien dire. Le sous-agent propose, vous décidez : il peut oublier un point ou en inventer un. **Ne corrigez rien encore** : c'est l'objet des étapes suivantes.
 
 ### Étape 4 : préparer un extrait à envoyer à un modèle
 
