@@ -360,7 +360,14 @@ La réservation s'affiche encore, avec le téléphone et le courriel.
 
 Mais la recherche répond toujours à qui la demande, sans vérifier qui il est. Une recherche bien écrite, ouverte à tout le monde, reste une fuite.
 
-**2. Décidez.** Vérifier qui demande, c'est construire une identification : des mots de passe à ranger, à changer, des essais à limiter. Cela ne se fait pas en quelques minutes. Pour l'exercice, on fait plus simple : le serveur public ne cherche plus rien. La recherche devient un script que le gérant lance sur son propre poste.
+**2. Décidez.** Cette recherche a été écrite pour une seule personne : le gérant du Pigala, qui veut retrouver la réservation d'un client. Lui en a toujours besoin. Les visiteurs du site, non.
+
+Deux solutions :
+
+- garder la recherche sur le site, et vérifier que c'est bien le gérant qui demande. Il faut alors des mots de passe, à ranger, à changer : cela ne se fait pas en quelques minutes ;
+- retirer la recherche du site, et la donner au gérant sous la forme d'un petit programme, sur son ordinateur.
+
+On choisit la seconde. Le site ne cherche plus rien, et le gérant garde son outil.
 
 **3. Envoyez le prompt :**
 
