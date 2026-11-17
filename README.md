@@ -30,7 +30,7 @@ Si `python` n'existe pas sur votre poste (Mac, certains Linux), tapez `python3` 
 
 **Tout le monde part de la page fournie** : personne n'a besoin de sa page du jour 1. C'est la page de la formatrice, avec sa carte écrite en HTML et quatre emplacements photo « [à fournir] ». L'exercice 10, premier de la journée, la relit avec le skill `/verifier-page` de l'exercice 5 ; l'exercice 11 la branche sur une base. Ensuite, chaque `depart/` est la solution de l'exercice précédent quand l'exercice touche la page ou le serveur (15, 17, 21, 23).
 
-Les dossiers `01` à `09` sont les exercices du jour 1. Le dossier `16` est un exercice du jour 1 qui n'est pas au programme de cette journée.
+Les dossiers `01` à `09` sont les exercices du jour 1. Les exercices 14 et 16 du jour 1 ne sont pas repris : la recherche dans le code se fait à l'exercice 21, et la mesure à l'exercice 15, par le chrono et le hook `chrono-tokens`.
 
 | Exercice | Point du programme | Durée |
 |---|---|---|
