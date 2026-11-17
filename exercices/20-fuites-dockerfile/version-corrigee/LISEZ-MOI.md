@@ -12,6 +12,27 @@ Vous n'avez rien à lancer et rien à installer. Tout se lit.
 | `.dockerignore` | La liste de ce qui ne doit jamais partir dans une image |
 | `historique-corrige.txt` | Ce que l'image corrigée raconte d'elle-même : la sortie réelle de `docker history` |
 
+## Ce que contient un fichier comme `secrets.env`
+
+Dans l'exercice, `depart/secrets.env` contient une seule ligne, avec un faux jeton.
+
+Dans un vrai projet, c'est le fichier où l'on range les valeurs qui donnent accès à quelque chose. Une ligne par valeur, sous la forme `NOM=valeur`. Le plus souvent :
+
+| Ce qu'on y trouve | À quoi ça donne accès |
+|---|---|
+| Le mot de passe de la base de données | Toutes les données des clients, en lecture et en écriture |
+| Une clé d'API d'un service payant (envoi de mails ou de SMS, paiement en ligne, cartes) | Le compte de l'entreprise chez ce prestataire, et sa facture |
+| Une clé d'API d'un modèle d'IA | La consommation de tokens, facturée à l'entreprise |
+| Un jeton de déploiement | Le droit de mettre en ligne une nouvelle version du site |
+| Les identifiants du serveur de mail | Le droit d'envoyer des messages au nom de l'entreprise |
+| La clé qui signe les sessions des utilisateurs | La possibilité de se faire passer pour n'importe quel utilisateur connecté |
+
+Pour le Pigala, ce serait par exemple le mot de passe de la base des réservations, la clé du service qui envoie les SMS de confirmation, et le jeton qui publie le site.
+
+**À retenir :** ce fichier ne contient pas des données, il contient des clés. Qui l'a n'a rien à pirater : il entre par la porte. C'est pour cela qu'il ne doit se trouver ni dans une image Docker, ni dans un dépôt Git, ni dans un prompt.
+
+Le nom vient de l'habitude : `.env` pour « environnement ». On rencontre surtout le nom `.env` tout court.
+
 ## Avant, après : les trois fuites
 
 | Fuite | Dans `depart/Dockerfile` | Dans `Dockerfile.corrige` |
