@@ -323,7 +323,9 @@ Résultat attendu : `FAILED (failures=3)`. Le test d'injection est passé au ver
 Dans exercices/21-securiser-workflow/depart/, lis servir.py, charger_reservations.py et test_securite.py. Quatre changements : 1) le serveur ne sert plus qu'une liste blanche de fichiers : index.html, style.css, script.js, reservations.js, les feuilles de css/ et les images de photos/ ; toute autre adresse répond 404 ; 2) écris separer_base.py, qui copie la table reservations de carte.db vers donnees/reservations.db, vérifie que le nombre de lignes est identique, puis supprime la table de carte.db ; servir.py enregistre désormais les réservations dans donnees/reservations.db ; 3) la lecture de la carte utilise une connexion en lecture seule ; 4) déplace reservations.csv dans donnees/ et adapte charger_reservations.py pour qu'il écrive dans donnees/reservations.db. Ne lance ni separer_base.py ni le serveur : je les lancerai moi-même.
 ```
 
-**2. Relisez, puis déplacez les réservations vous-même.** Ce geste modifie la base : le prompt l'interdit à l'outil, il vous revient.
+**2. Relisez le script, puis lancez-le vous-même.** L'outil a écrit `separer_base.py`, mais il ne l'a pas lancé : le prompt le lui interdit. Ce script supprime les réservations de l'ancienne base. Un geste qui efface des données, c'est une personne qui le déclenche, après avoir lu.
+
+Avant de le lancer, vérifiez une chose dans le script : la suppression vient après le contrôle du nombre de lignes.
 
 ```
 python separer_base.py
