@@ -2,11 +2,11 @@
 
 **Point du programme** : propriété du code, droits, licences, auditabilité.
 
-**Durée** : 20 minutes, de 13 h 10 à 13 h 30 (à la reprise, après le déjeuner) : 15 minutes de discussion, puis 5 minutes pour un geste final.
+**Durée** : 20 minutes : 15 minutes de discussion, puis 5 minutes pour un geste final.
 
 ## Ce qu'on fait
 
-Cet exercice se fait en slides et en discussion (15 minutes, à 13 h 10) : on lit, on discute, on décide ensemble. Il se termine par un geste de 5 minutes, décrit plus bas, qui laisse un commit.
+Cet exercice se fait en slides et en discussion (15 minutes) : on lit, on discute, on décide ensemble. Il se termine par un geste de 5 minutes, décrit plus bas, qui laisse un commit.
 
 Les énoncés des trois cas sont dans `exercices/22-a-qui-est-ce-code/depart/cas.md`. Pour chaque cas, un fichier à ouvrir dans le même dossier `depart/` :
 

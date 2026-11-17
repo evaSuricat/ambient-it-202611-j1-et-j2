@@ -2,7 +2,7 @@
 
 **Point du programme** : atelier officiel « requête SQL sensible » : prouver la fuite, envoyer au modèle un extrait anonymisé, corriger, prouver la correction.
 
-**Durée** : 40 minutes, avec 10 minutes de marge avant le déjeuner.
+**Durée** : 40 minutes.
 
 ## Ce qu'on fait
 
