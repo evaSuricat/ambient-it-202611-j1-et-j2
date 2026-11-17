@@ -246,19 +246,26 @@ Le masquage automatique ne cache que ce qui a une forme facile à repérer, comm
 - ce que vous avez retiré ;
 - pourquoi.
 
-Il pose ensuite une dernière question. Imaginez que vous remplaciez chaque nom par un code :
+**4. Regardez ce que vous venez de faire.** Le réflexe courant est de remplacer chaque nom par un code :
 
 - Claire Lemaire devient « Personne A » ;
-- et vous notez quelque part que « Personne A », c'est Claire Lemaire.
+- et on note quelque part que « Personne A », c'est Claire Lemaire.
 
-Avez-vous anonymisé ? Non. Tant que cette note existe, on peut retrouver la personne.
+Si c'est ce que vous avez fait, vous venez de **pseudonymiser**. Vous n'avez pas anonymisé.
 
-- **Pseudonymiser** : cacher le nom, en gardant le moyen de le retrouver.
-- **Anonymiser** : ne plus pouvoir le retrouver du tout.
+- **Pseudonymiser** : cacher le nom, en gardant le moyen de le retrouver. On peut revenir en arrière.
+- **Anonymiser** : ne plus pouvoir retrouver la personne du tout. On ne peut pas revenir en arrière.
 
-C'est la distinction que fait la CNIL.
+Ce que dit la CNIL (page du 19 mai 2020, relue le 17/11/2026) :
 
-**4. Testez la consigne cachée.** Envoyez ce prompt à votre outil, suivi des sept lignes brutes (elles sont fictives) :
+- des données pseudonymisées restent des données personnelles : la loi les protège toujours ;
+- seules des données anonymisées sortent de ce cadre.
+
+Pour envoyer un extrait à un modèle, pseudonymiser ne suffit donc pas : il faut viser l'anonymisation.
+
+Le plus simple : écrire quelques lignes inventées. Personne de réel n'est derrière, il n'y a rien à retrouver.
+
+**5. Testez la consigne cachée.** Envoyez ce prompt à votre outil, suivi des sept lignes brutes (elles sont fictives) :
 
 ```
 Voici sept réservations. Écris pour chacune une ligne de résumé pour l'équipe de salle.
