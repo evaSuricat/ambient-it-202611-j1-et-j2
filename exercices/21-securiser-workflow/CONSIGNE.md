@@ -308,23 +308,43 @@ Résultat attendu : `FAILED (failures=3)`. Le test d'injection est passé au ver
 
 ### Étape 6 : deuxième correctif, fichiers, base séparée, lecture seule
 
+**But :** le serveur ne doit plus donner ses fichiers à qui les demande, et les réservations doivent quitter le dossier qu'il sert.
+
+**Ce qu'on va faire.** Demander quatre changements à l'outil, puis déplacer les réservations nous-mêmes, puis relancer les tests.
+
+| Changement demandé | En clair |
+|---|---|
+| 1. Une liste blanche | Le serveur ne donne plus que la page, ses styles, ses scripts et ses images. Tout le reste répond « introuvable » |
+| 2. Une base séparée | Les réservations partent dans une autre base, dans un dossier `donnees/` que le serveur ne donne pas |
+| 3. La lecture seule | Pour lire la carte, le serveur ouvre la base sans pouvoir y écrire |
+| 4. Le fichier CSV | `reservations.csv` part lui aussi dans `donnees/` |
+
+**1. Envoyez le prompt**, dans Claude Code ou Copilot en mode Agent :
+
 ```
 Dans exercices/21-securiser-workflow/depart/, lis servir.py, charger_reservations.py et test_securite.py. Quatre changements : 1) le serveur ne sert plus qu'une liste blanche de fichiers : index.html, style.css, script.js, reservations.js, les feuilles de css/ et les images de photos/ ; toute autre adresse répond 404 ; 2) écris separer_base.py, qui copie la table reservations de carte.db vers donnees/reservations.db, vérifie que le nombre de lignes est identique, puis supprime la table de carte.db ; servir.py enregistre désormais les réservations dans donnees/reservations.db ; 3) la lecture de la carte utilise une connexion en lecture seule ; 4) déplace reservations.csv dans donnees/ et adapte charger_reservations.py pour qu'il écrive dans donnees/reservations.db. Ne lance ni separer_base.py ni le serveur : je les lancerai moi-même.
 ```
 
-Relisez, puis lancez la séparation vous-même :
+**2. Relisez ce qu'il a écrit** avant d'accepter.
+
+**3. Déplacez les réservations vous-même.** Le prompt interdit à l'outil de le faire : ce geste modifie la base, il vous revient. Le script `separer_base.py` copie les réservations dans la nouvelle base, vérifie qu'il n'en manque aucune, puis les retire de l'ancienne.
 
 ```
 python separer_base.py
 ```
 
-Résultat attendu : une ligne qui annonce 30 réservations copiées. Lancée une seconde fois, elle ne fait rien (« rien à faire ») : c'est voulu. Si elle s'arrête sur une erreur de comptage, `carte.db` n'est pas modifiée : rien n'est perdu. Puis les tests :
+Vous devez voir une ligne qui annonce 30 réservations copiées.
+
+- Relancé une seconde fois, il répond « rien à faire » : c'est voulu.
+- S'il s'arrête sur une erreur de comptage, `carte.db` n'est pas modifiée : rien n'est perdu.
+
+**4. Relancez les tests.**
 
 ```
 python -m unittest
 ```
 
-Résultat attendu : `FAILED (failures=1)`. Il ne reste qu'un test rouge : « la recherche n'est pas publique ».
+Vous devez voir `FAILED (failures=1)`. Il ne reste qu'un test au rouge : « la recherche n'est pas publique ». C'est l'objet de l'étape 7.
 
 ### Étape 7 : le piège qui reste
 
