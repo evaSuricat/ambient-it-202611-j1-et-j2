@@ -240,7 +240,23 @@ Téléphones et courriels sont masqués. Il reste :
 
 Le masquage automatique ne cache que ce qui a une forme facile à repérer, comme un numéro de téléphone ou une adresse de courriel. Un prénom, une maladie, une phrase n'ont pas de forme fixe : il ne les voit pas, et ils restent dans l'extrait.
 
-**3. Faites-le à la main.** Dans `extrait-anonyme.md`, écrivez l'extrait que vous enverriez vraiment, ce que vous avez retiré, et pourquoi. Sa dernière question : remplacer Claire Lemaire par « Personne A » en gardant le tableau qui relie les deux, est-ce anonymiser ? Non : c'est pseudonymiser, on peut revenir en arrière (distinction de la CNIL).
+**3. Faites-le à la main.** Ouvrez `extrait-anonyme.md`. Il vous demande d'écrire trois choses :
+
+- l'extrait que vous enverriez vraiment au modèle ;
+- ce que vous avez retiré ;
+- pourquoi.
+
+Il pose ensuite une dernière question. Imaginez que vous remplaciez chaque nom par un code :
+
+- Claire Lemaire devient « Personne A » ;
+- et vous notez quelque part que « Personne A », c'est Claire Lemaire.
+
+Avez-vous anonymisé ? Non. Tant que cette note existe, on peut retrouver la personne.
+
+- **Pseudonymiser** : cacher le nom, en gardant le moyen de le retrouver.
+- **Anonymiser** : ne plus pouvoir le retrouver du tout.
+
+C'est la distinction que fait la CNIL.
 
 **4. Testez la consigne cachée.** Envoyez ce prompt à votre outil, suivi des sept lignes brutes (elles sont fictives) :
 
