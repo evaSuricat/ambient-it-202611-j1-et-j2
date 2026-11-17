@@ -66,7 +66,18 @@ Résultat attendu : `(31, 'Essai Stagiaire', '2026-12-12', 2)`, avec vos valeurs
 
 ### Étape 6 : le cas d'échec
 
-Arrêtez le serveur (`Ctrl+C`), renvoyez le formulaire. Résultat attendu : « Votre demande n'a pas pu être envoyée. Appelez le 01 99 00 12 34. », et dans la console (F12) une erreur réseau, pas un 404. Relancez le serveur ensuite. Un 404 sur `/api/reservations` avec le serveur lancé voudrait dire que l'adresse du `fetch` est fausse.
+**À quoi sert cette étape.** Un client a la page ouverte devant lui et remplit le formulaire. Pendant ce temps, le serveur tombe. Quand il clique sur le bouton, sa réservation ne part pas. Une page mal faite ne dit rien, et il croit avoir réservé. La vôtre doit le lui dire, et lui donner le téléphone. On vérifie donc ce que la page affiche quand l'envoi échoue. C'est un cas qu'un outil écrit rarement tout seul, et qu'on ne voit jamais si on ne teste que quand tout marche.
+
+Dans l'ordre :
+
+1. Le serveur tourne et la page est affichée dans Chrome, à `http://127.0.0.1:8000/`. Remplissez le formulaire, **sans l'envoyer**.
+2. Dans le terminal du serveur, arrêtez-le avec `Ctrl+C`.
+3. Revenez dans Chrome et **ne rechargez pas la page** (pas de F5) : c'est le serveur qui l'envoie, sans lui elle disparaît et Chrome affiche « Ce site est inaccessible ». Si cela vous arrive, relancez le serveur, rechargez, et reprenez au point 1.
+4. Cliquez sur le bouton d'envoi du formulaire.
+
+Résultat attendu : sous le formulaire, « Votre demande n'a pas pu être envoyée. Appelez le 01 99 00 12 34. », et dans la console (F12) une erreur réseau en rouge (`Failed to fetch` ou `ERR_CONNECTION_REFUSED`), pas un 404.
+
+Relancez le serveur ensuite (`python servir.py`). Un 404 sur `/api/reservations` avec le serveur lancé voudrait dire autre chose : que l'adresse du `fetch` est fausse.
 
 ### Étape 7 : enregistrer le résultat
 
