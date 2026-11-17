@@ -43,7 +43,15 @@ Claude Code lit les sous-agents une seule fois, à l'ouverture d'une session : *
 
 ### Étape 0 bis : voir d'où on part (3 minutes)
 
-Avant de chercher les failles, regardez ce que le site fait. Depuis E17, la page du Pigala a un formulaire « Réserver une table ». Chaque réservation envoyée arrive dans la base `carte.db`, table `reservations`, avec le nom, le téléphone, le courriel, la date, le nombre de couverts et le commentaire du client. La base fournie en contient déjà 30, fictives. Le serveur `servir.py` sert la page, enregistre les réservations, et propose une recherche de réservation par nom.
+Avant de chercher les failles, regardez ce que le site fait. Depuis E17, la page du Pigala a un formulaire « Réserver une table ». Chaque réservation envoyée arrive dans la base `carte.db`, table `reservations`, avec le nom, le téléphone, le courriel, la date, le nombre de couverts et le commentaire du client. La base fournie en contient déjà 30, fictives.
+
+Le programme `servir.py`, celui qu'on lance avec `python servir.py`, fait trois choses :
+
+- **il sert la page** : quand Chrome demande `http://127.0.0.1:8000/`, c'est lui qui envoie la page du Pigala ;
+- **il enregistre les réservations** : quand quelqu'un envoie le formulaire, il reçoit la demande et l'écrit dans la base. C'est ce que vous avez fait à l'exercice 17 ;
+- **il répond à une recherche par nom** : on lui donne un nom, il renvoie les réservations qui correspondent. Elle a été pensée pour le gérant, qui veut retrouver la réservation d'un client.
+
+C'est la troisième qui compte ici : cette recherche est ouverte à tout le monde, sans mot de passe.
 
 Ouvrez un deuxième terminal (bouton **+** du panneau Terminal). Un serveur ne rend jamais la main : il garde ce terminal pour lui jusqu'à la fin de l'étape 3. Depuis la racine de `stagiaire_J1_et_J2` :
 
