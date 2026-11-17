@@ -80,3 +80,13 @@ Relevé du 17/11/2026 sur le poste de la formatrice, avec Docker 25.0.3 :
 
 - Elle ne dit pas où ranger le vrai jeton. Sur un vrai projet, il vit dans un gestionnaire de secrets, pas dans un fichier du dépôt.
 - Elle ne répare pas une image déjà publiée. Si une image avec un secret est partie, il faut changer le secret : supprimer l'image ne suffit pas.
+
+## En option : le faire écrire par un outil
+
+Rien d'obligatoire ici. Si vous voulez voir ce qu'un assistant propose, voici le prompt de l'étape 6 de la consigne, à coller dans Claude Code ou dans Copilot en mode Agent :
+
+```
+Dans exercices/20-fuites-dockerfile/depart/, lis le Dockerfile et historique-docker.txt. Crée Dockerfile.corrige et .dockerignore : plus aucun secret dans ARG, ENV ni COPY ; le jeton est lu par un secret de build (RUN --mount=type=secret) ; seul app.py est copié ; le .dockerignore écarte secrets.env, reservations.csv, les fichiers .db et le dossier .git. N'ouvre pas le dossier version-corrigee. N'exécute aucune commande Docker.
+```
+
+Comparez ensuite ce qu'il a écrit dans `depart/` avec les deux fichiers de ce dossier. L'outil peut corriger deux fuites sur trois et en oublier une : c'est à vous de compter.
