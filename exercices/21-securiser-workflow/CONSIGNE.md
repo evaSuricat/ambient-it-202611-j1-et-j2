@@ -187,6 +187,30 @@ Utilise le sous-agent relecteur-code sur exercices/21-securiser-workflow/depart/
 
 Résultat attendu : Claude Code délègue au sous-agent d'après sa description, et la réponse montre qu'un sous-agent a tourné (une ligne de tâche déléguée à `relecteur-code`, dont l'aspect dépend de la version). Vous obtenez une liste avec numéros de ligne, une gravité de 1 à 3 et une correction par point, puis ce qu'il n'a pas pu vérifier. Si la réponse vient de Claude seul, sans mention du sous-agent, redites la même phrase en commençant par « Délègue à ». La commande `/agents` n'est pas nécessaire : selon la documentation lue le 11/11/2026, elle affiche seulement un rappel d'éditer `.claude/agents/` sur les versions récentes, et ouvre un assistant avec la liste des agents sur les anciennes.
 
+**Voir ce que le sous-agent a fait.** Ce que Claude vous écrit n'est pas le rapport du sous-agent : c'est le résumé qu'il en fait. L'ordre des points peut changer, des détails disparaissent. Pour voir le travail lui-même :
+
+1. Dans la conversation, repérez la ligne `Agent:` suivie du nom de la tâche. Quand il a fini, elle affiche `Finished`.
+2. En bas de la fenêtre, sous la zone où vous tapez, cliquez sur la pastille qui compte les agents (`0 agents`, `1 agent`…). Le panneau **Agent map** s'ouvre.
+3. Cliquez sur l'agent dans la liste (« click an agent for details »).
+
+Vous y lisez, de haut en bas :
+
+| Ce qui s'affiche | Ce que ça vous apprend |
+|---|---|
+| Une ligne du type `relecteur-code · Sonnet 5.5 · 50s · 20.5k tokens` | Quel sous-agent a tourné, sur quel modèle, combien de temps, et ce qu'il a consommé |
+| Son rapport complet | Ce qu'il a vraiment écrit, avant le résumé de Claude |
+| `Prompt` | Ce que Claude lui a demandé. Ce n'est pas votre phrase : Claude l'a réécrite |
+| `Tool calls` | La liste de tout ce qu'il a ouvert et cherché |
+
+Les libellés sont en anglais et leur aspect dépend de la version (relevé du 17/11/2026, Claude Code dans VS Code). La mention `type /tasks to see its transcript`, sous la ligne `Agent:`, donne un autre chemin vers le même contenu.
+
+**Regardez la liste `Tool calls`, et répondez pour vous-même à deux questions :**
+
+- A-t-il ouvert d'autres fichiers que `servir.py`, le seul que vous lui avez demandé ?
+- L'un d'eux contient-il des données de clients ?
+
+« Lecture seule » veut dire qu'il ne modifie rien. Cela ne veut pas dire qu'il ne lit que ce qu'on lui montre. Gardez votre réponse en tête : c'est le sujet de l'étape 4.
+
 Ouvrez `exercices/21-securiser-workflow/depart/tri-revue.md`. Dans la **partie A**, recopiez ses trois premières propositions et triez-les : juste, faux ou à ignorer, pourquoi, comment vous l'avez vérifié. Notez l'outil et le modèle. Sans abonnement Claude Code : dans Copilot, sélectionnez le contenu de `servir.py`, clic droit, l'entrée de revue de Copilot (son libellé exact, « Review » ou « Review and Comment », est à relever à l'écran), même tri ; la revue peut ne rien dire. Le sous-agent propose, vous décidez : il peut oublier un point ou en inventer un. **Ne corrigez rien encore** : c'est l'objet des étapes suivantes.
 
 ### Étape 4 : préparer un extrait à envoyer à un modèle
