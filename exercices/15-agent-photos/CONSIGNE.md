@@ -26,6 +26,33 @@ git commit -m "E15 : état avant les photos"
 
 Résultat attendu : une ligne « files changed » ; « nothing to commit » est normal si rien n'a changé depuis le clonage. Ce commit permet de voir ensuite exactement ce que l'agent a changé.
 
+### Étape 0 bis : préparer la mesure
+
+Cet exercice se mesure de deux façons, qui ne disent pas la même chose :
+
+- **votre chrono** (téléphone ou montre) mesure votre temps à vous, lecture et vérifications comprises. Tout le monde le lance à l'étape 1 ;
+- **le hook `chrono-tokens`**, avec Claude Code seulement, mesure le travail de l'agent : la durée de sa réponse, le modèle, les tokens consommés et le coût en équivalent API.
+
+Un hook est un petit programme que Claude Code lance lui-même à un moment précis, sans passer par le modèle : ici, quand vous envoyez un prompt et quand la réponse est finie. Avec Copilot, sautez cette étape : il n'y a que le chrono.
+
+Installez le hook depuis la racine de `stagiaire_J1_et_J2`, une ligne après l'autre (elles marchent sous Windows comme sous Linux) :
+
+```
+mkdir .claude/chrono-tokens
+cp ressources/hooks/chrono-tokens/chrono_tokens.py .claude/chrono-tokens/
+cp ressources/hooks/chrono-tokens/settings.local.exemple.json .claude/settings.local.json
+```
+
+La première ligne crée le dossier du hook, la deuxième y copie le script, la troisième pose le réglage qui dit à Claude Code quand le lancer. Résultat attendu : aucun message. Une erreur « No such file » (« Cannot find path » sous PowerShell) veut dire que vous n'êtes pas à la racine : rien n'a été écrit, vérifiez avec `pwd`. Sous macOS ou Linux, il reste un mot à changer dans le réglage : voyez `ressources/hooks/chrono-tokens/LISEZ-MOI.md`.
+
+Vérifiez dans Claude Code, en tapant :
+
+```
+/hooks
+```
+
+Résultat attendu : deux lignes, `UserPromptSubmit` et `Stop`, marquées « Local ». Si elles n'y sont pas, fermez la conversation et ouvrez-en une nouvelle. Ces fichiers restent sur votre poste : le `.gitignore` du dépôt les tient hors des commits.
+
 ### Étape 1 : lancer le chrono et envoyer un seul prompt
 
 **Lancez un chrono** (téléphone ou montre), puis donnez un seul prompt à Claude Code. Il crée l'environnement virtuel `.venv` à la **racine** du dépôt, là où VS Code le retrouve tout seul :
@@ -120,9 +147,13 @@ git status
 
 Résultat attendu : `.venv` n'apparaît pas, il est ignoré par git. Les fichiers listés sont `redimensionner.py`, `requirements.txt`, `index.html`, et les trois dossiers de photos.
 
-### Étape 6 : arrêter le chrono et enregistrer
+### Étape 6 : arrêter le chrono, lire le journal et enregistrer
 
-**Arrêtez le chrono et notez le temps.** Relisez le message de commit proposé : s'il cite un fichier qui n'existe pas (par exemple `requirements.txt` si l'installation a été refusée), corrigez-le. Puis, depuis la racine :
+**Arrêtez le chrono et notez le temps** : c'est le vôtre, de l'envoi du prompt à la fin de vos vérifications.
+
+**Avec Claude Code, lisez aussi le journal du hook.** Ouvrez `.claude/chrono-tokens/journal.md` : la ligne de l'exercice `15-agent-photos` donne la durée de la réponse de l'agent, le modèle, les tokens et le coût en équivalent API. Notez la durée et le coût à côté du temps de votre chrono. Les deux durées diffèrent : l'écart, c'est le temps que vous avez passé à lire les permissions et à vérifier. La colonne « Lecture cache » est souvent la plus grosse : à chaque geste, l'agent relit tout ce qu'il a déjà vu. Le coût est un ordre de grandeur, calculé sur des tarifs relevés le 12/11/2026 ; avec un forfait, rien n'est facturé au prompt.
+
+Relisez le message de commit proposé : s'il cite un fichier qui n'existe pas (par exemple `requirements.txt` si l'installation a été refusée), corrigez-le. Puis, depuis la racine :
 
 ```
 git add exercices/15-agent-photos
@@ -136,10 +167,10 @@ Remplacez le message par celui de l'agent, relu et corrigé, s'il est meilleur. 
 
 ## Livrable
 
-`redimensionner.py`, `requirements.txt` (dans `exercices/15-agent-photos/depart/`), 24 images dans `photos/petit`, `photos/moyen` et `photos/grand`, la page avec ses quatre photos, deux commits (avant et après), le temps du chrono. Le `.venv` est à la racine du dépôt.
+`redimensionner.py`, `requirements.txt` (dans `exercices/15-agent-photos/depart/`), 24 images dans `photos/petit`, `photos/moyen` et `photos/grand`, la page avec ses quatre photos, deux commits (avant et après), le temps du chrono et, avec Claude Code, la durée et le coût lus dans le journal du hook. Le `.venv` est à la racine du dépôt.
 
 ## Ce qu'on retient
 
-- L'agent a enchaîné six gestes qu'on aurait faits à la main en une heure. Le chrono le dit.
+- L'agent a enchaîné six gestes qu'on aurait faits à la main en une heure. Le chrono le dit, et le journal du hook dit ce que ces gestes ont consommé.
 - Il a eu besoin d'installer quelque chose : c'est le moment où on lit avant d'accepter. Sur le poste d'une entreprise, c'est souvent interdit, et il faut le savoir avant.
 - Le texte alternatif est exigé par `AGENTS.md` : l'outil l'a écrit. Reste à vérifier qu'il décrit vraiment la photo. Une règle écrite vaut mieux qu'une correction après coup, et elle ne dispense pas de relire.
