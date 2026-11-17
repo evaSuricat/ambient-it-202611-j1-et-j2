@@ -238,7 +238,7 @@ Téléphones et courriels sont masqués. Il reste :
 - des données de santé : allergie, asthme, fauteuil roulant ;
 - une consigne cachée dans un commentaire.
 
-La règle masque ce qu'elle reconnaît, le reste passe.
+Le masquage automatique ne cache que ce qui a une forme facile à repérer, comme un numéro de téléphone ou une adresse de courriel. Un prénom, une maladie, une phrase n'ont pas de forme fixe : il ne les voit pas, et ils restent dans l'extrait.
 
 **3. Faites-le à la main.** Dans `extrait-anonyme.md`, écrivez l'extrait que vous enverriez vraiment, ce que vous avez retiré, et pourquoi. Sa dernière question : remplacer Claire Lemaire par « Personne A » en gardant le tableau qui relie les deux, est-ce anonymiser ? Non : c'est pseudonymiser, on peut revenir en arrière (distinction de la CNIL).
 
